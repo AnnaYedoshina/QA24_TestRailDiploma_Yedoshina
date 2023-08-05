@@ -47,7 +47,7 @@ public class MilestonesTab extends BasePage {
         new Input(driver, MILESTONE_NAME).setValue(milestoneName);
         new Input(driver, MILESTONE_DESCRIPTION).setValue(milestoneDescription);
         new Button(driver, SUBMIT_MILESTONE_BUTTON).click();
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(milestonesLocator, milestoneName))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(milestonesLocator, milestoneName))));
     }
 
     public void openMilestoneTab() {
