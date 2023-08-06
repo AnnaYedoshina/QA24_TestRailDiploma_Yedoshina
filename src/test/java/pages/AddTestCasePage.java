@@ -33,7 +33,7 @@ public class AddTestCasePage extends BasePage {
     private static final By AUTOMATION_TYPE = By.id("custom_automation_type_chzn");
     private static final By ERROR_MESSAGE_LOCATOR = By.xpath("//div[@class = 'message message-error']");
     private static final By PENDO_IMAGE = By.xpath("//img[contains(@id,'pendo-image-badge')]");
-    private static final By ADD_IMAGE_BUTTON = By.xpath("//div[@id = 'custom_expected_display']/ancestor::div[@class = 'form-group']/descendant::a[@tooltip-text='Add an image to this text field.']");
+    private static final By ADD_IMAGE_BUTTON = By.xpath("//div[@id = 'custom_preconds_display']/ancestor::div[@class = 'form-group']/descendant::a[@tooltip-text='Add an image to this text field.']");
     private static final By SUBMIT_ATTACHMENT_BUTTON = By.id("attachmentNewSubmit");
     private static final By ADD_NEW_BUTTON = By.id("libraryAddAttachment");
     private static final By FILE_INPUT =By.xpath("//input[@type='file']");
@@ -59,6 +59,7 @@ public class AddTestCasePage extends BasePage {
     public void clickAddTestCaseButton() {
         log.info("Clicking addTestCaseButton");
         wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+        wait.until(ExpectedConditions.elementToBeClickable(ADD_CASE_BUTTON));
         new Button(driver, ADD_CASE_BUTTON).click();
     }
 
@@ -101,16 +102,6 @@ public class AddTestCasePage extends BasePage {
     public void clickAddNewButton(){
         new Button(driver,ADD_NEW_BUTTON).click();
 
-    }
-    @Step
-    public void isFileUploaded(){
-        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
-        WebElement uploadedFile = driver.findElement(By.xpath("/div[contains(@title, 'TestRail')]"));
-        if (uploadedFile.isDisplayed()) {
-            System.out.println("Файл успешно добавлен!");
-        } else {
-            System.out.println("Ошибка при добавлении файла.");
-        }
 
     }
 

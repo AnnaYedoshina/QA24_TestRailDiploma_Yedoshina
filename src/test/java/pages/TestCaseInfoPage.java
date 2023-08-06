@@ -39,12 +39,7 @@ public class TestCaseInfoPage extends BasePage {
     @Step
     public boolean isFileUploaded(){
         wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
-        WebElement uploadedFile = driver.findElement(By.xpath("/div[contains(@title, 'TestRail')]"));
-//        if (uploadedFile.isDisplayed()) {
-//            System.out.println("Файл успешно добавлен!");
-//        } else {
-//            System.out.println("Ошибка при добавлении файла.");
-//        }
+        WebElement uploadedFile = driver.findElement(By.xpath("//div[contains(@title, 'TestRail')]"));
         return false;
     }
 }
