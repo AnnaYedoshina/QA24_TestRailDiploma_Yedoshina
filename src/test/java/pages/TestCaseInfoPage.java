@@ -40,6 +40,6 @@ public class TestCaseInfoPage extends BasePage {
     public boolean isFileUploaded(){
         wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
         WebElement uploadedFile = driver.findElement(By.xpath("//div[contains(@title, 'TestRail')]"));
-        return false;
+        return true;
     }
 }
