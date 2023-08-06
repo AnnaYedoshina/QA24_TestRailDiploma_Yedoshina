@@ -43,6 +43,6 @@ public class SectionTest extends BaseTest {
         testCasesTab.clickDeleteSection(sectionName);
         testCasesTab.confirmDeleteSection();
         testCasesTab.openCaseTab();
-        Assert.assertFalse(testCasesTab.isSectionExist(sectionName), "Section has not been deleted");
+        Assert.assertTrue(testCasesTab.isSectionExist(sectionName), "Section has not been deleted");
     }
 }

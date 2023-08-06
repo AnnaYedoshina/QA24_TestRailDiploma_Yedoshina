@@ -1,14 +1,16 @@
 package pages;
 
 import elements.Button;
+import elements.Checkbox;
 import elements.Dropdown;
 import elements.Input;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.TestCase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 @Log4j2
 public class AddTestCasePage extends BasePage {
@@ -31,6 +33,10 @@ public class AddTestCasePage extends BasePage {
     private static final By AUTOMATION_TYPE = By.id("custom_automation_type_chzn");
     private static final By ERROR_MESSAGE_LOCATOR = By.xpath("//div[@class = 'message message-error']");
     private static final By PENDO_IMAGE = By.xpath("//img[contains(@id,'pendo-image-badge')]");
+    private static final By ADD_IMAGE_BUTTON = By.xpath("//div[@id = 'custom_expected_display']/ancestor::div[@class = 'form-group']/descendant::a[@tooltip-text='Add an image to this text field.']");
+    private static final By SUBMIT_ATTACHMENT_BUTTON = By.id("attachmentNewSubmit");
+    private static final By ADD_NEW_BUTTON = By.id("libraryAddAttachment");
+    private static final By FILE_INPUT =By.xpath("//input[@type='file']");
 
     @Step("Filling out test case '{testCase.title}'")
     public void fillingOutTestCase(TestCase testCase) {
@@ -52,6 +58,7 @@ public class AddTestCasePage extends BasePage {
     @Step
     public void clickAddTestCaseButton() {
         log.info("Clicking addTestCaseButton");
+        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
         new Button(driver, ADD_CASE_BUTTON).click();
     }
 
@@ -61,5 +68,51 @@ public class AddTestCasePage extends BasePage {
         return driver.findElement(ERROR_MESSAGE_LOCATOR).getText();
 
     }
+    @Step
+    public void clickAddImageButton(){
+        log.info("Clicking addImageButton");
+        new Button(driver,ADD_IMAGE_BUTTON).click();
+
+    }
+    @Step
+    public void uploadFile(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("Uploading file");
+        new Input(driver,FILE_INPUT).setValue(System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg");
+
+    }
+    @Step
+    public void clickSubmitAttachment(){
+        log.info("Clicking addNewButton");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("Clicking submitAttachmentButton");
+        new Button(driver, SUBMIT_ATTACHMENT_BUTTON).click();
+
+    }
+    @Step
+    public void clickAddNewButton(){
+        new Button(driver,ADD_NEW_BUTTON).click();
+
+    }
+    @Step
+    public void isFileUploaded(){
+        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+        WebElement uploadedFile = driver.findElement(By.xpath("/div[contains(@title, 'TestRail')]"));
+        if (uploadedFile.isDisplayed()) {
+            System.out.println("Файл успешно добавлен!");
+        } else {
+            System.out.println("Ошибка при добавлении файла.");
+        }
+
+    }
+
 
 }

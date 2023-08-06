@@ -1,6 +1,8 @@
 package tests;
 
 import models.TestCase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -34,6 +36,20 @@ public class TestCaseTests extends BaseTest {
         addTestCasePage.fillingOutTestCase(testCase);
         addTestCasePage.clickAddTestCaseButton();
         Assert.assertEquals(addTestCasePage.gerErrorMessageText(), EXPECTED_ERROR_MESSAGE);
+
+    }
+    @Test(description = "Check if file can be uploaded in test case",groups = "regression")
+    public void fileUploadTest(){
+        TestCase testCase = TestDataGenerator.positiveTestCaseGeneration(TITLE);
+        addTestCasePage.fillingOutTestCase(testCase);
+        addTestCasePage.clickAddImageButton();
+        addTestCasePage.clickAddNewButton();
+        addTestCasePage.uploadFile();
+        addTestCasePage.clickSubmitAttachment();
+        addTestCasePage.clickAddTestCaseButton();
+        Assert.assertTrue(testCaseInfoPage.isFileUploaded(), "File was not uploaded");
+
+
 
     }
 
