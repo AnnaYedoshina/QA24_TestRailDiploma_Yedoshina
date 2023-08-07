@@ -13,7 +13,7 @@ public class AddedTestCasePage extends BasePage {
 
     private By addAnotherLink = By.xpath("//a[text() = 'Add another']");
 
-    @Step
+    @Step("Searching for add another link to be displayed")
     public boolean isAddAnotherLinkDisplayed() {
         return driver.findElement(addAnotherLink).isDisplayed();
 

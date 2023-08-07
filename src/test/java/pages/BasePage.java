@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertyReader;
 
@@ -16,6 +17,7 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected static final String BASE_URL = PropertyReader.getProperty("base_url");
+    private static final By PENDO_IMAGE = By.xpath("//img[contains(@id,'pendo-image-badge')]");
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -35,6 +37,11 @@ public class BasePage {
         Actions actions = new Actions(driver);
         WebElement targetTitle = driver.findElement(By.xpath(String.format(targetLocator, targetName)));
         actions.moveToElement(targetTitle).build().perform();
+    }
+
+    public void waitForPendoImage() {
+        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+
     }
 
 

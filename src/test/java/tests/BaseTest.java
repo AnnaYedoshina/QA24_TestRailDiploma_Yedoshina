@@ -9,7 +9,6 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -28,9 +27,7 @@ public abstract class BaseTest extends BaseApiTest {
     protected final static String WRONG_PASSWORD = "Ayqa2414!";
     protected final static String NAME = "TestProject";
     protected WebDriver driver;
-    protected WebDriverWait wait;
     protected LoginPage loginPage;
-    protected AllProjectsPage allProjectsPage;
     protected AddTestCasePage addTestCasePage;
     protected ProjectPage projectPage;
     protected AddedTestCasePage addedTestCasePage;
@@ -56,7 +53,6 @@ public abstract class BaseTest extends BaseApiTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
-        allProjectsPage = new AllProjectsPage(driver);
         projectPage = new ProjectPage(driver);
         addTestCasePage = new AddTestCasePage(driver);
         addedTestCasePage = new AddedTestCasePage(driver);

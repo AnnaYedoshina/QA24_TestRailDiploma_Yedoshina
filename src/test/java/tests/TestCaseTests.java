@@ -1,8 +1,6 @@
 package tests;
 
 import models.TestCase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,7 +13,7 @@ public class TestCaseTests extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void addTestCase() {
         loginPage.logIn(USERNAME, PASSWORD);
-        allProjectsPage.openProjectByName(NAME);
+        dashboardPage.openProjectByName(NAME);
         projectPage.clickAddTestCasesLink();
 
     }
@@ -32,23 +30,22 @@ public class TestCaseTests extends BaseTest {
 
     @Test(description = "Check if the test case can not be created without title", groups = "smoke")
     public void negativeAddTestCaseTest() {
-        TestCase testCase = TestDataGenerator.negativeTestCaseGeneration("");
+        TestCase testCase = TestDataGenerator.negativeTestCaseGeneration();
         addTestCasePage.fillingOutTestCase(testCase);
         addTestCasePage.clickAddTestCaseButton();
         Assert.assertEquals(addTestCasePage.gerErrorMessageText(), EXPECTED_ERROR_MESSAGE);
 
     }
-    @Test(description = "Check if file can be uploaded in test case",groups = "regression")
-    public void fileUploadTest(){
+
+    @Test(description = "Check if file can be uploaded in test case", groups = "regression")
+    public void fileUploadTest() {
         TestCase testCase = TestDataGenerator.positiveTestCaseGeneration(TITLE);
         addTestCasePage.fillingOutTestCase(testCase);
         addTestCasePage.clickAddImageButton();
-        addTestCasePage.clickAddNewButton();
         addTestCasePage.uploadFile();
         addTestCasePage.clickSubmitAttachment();
         addTestCasePage.clickAddTestCaseButton();
         Assert.assertTrue(testCaseInfoPage.isFileUploaded(), "File was not uploaded");
-
 
 
     }

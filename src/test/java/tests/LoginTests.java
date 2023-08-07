@@ -18,7 +18,7 @@ public class LoginTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void positiveLoginTest() {
         loginPage.logIn(USERNAME, PASSWORD);
-        Assert.assertTrue(allProjectsPage.isAddProjectButtonDisplayed());
+        Assert.assertTrue(dashboardPage.isAddProjectButtonDisplayed());
     }
 
     @DataProvider
@@ -32,7 +32,7 @@ public class LoginTests extends BaseTest {
     @Test(groups = {"smoke"}, description = "Negative LoginForm test", dataProvider = "negativeLoginTestData")
     @Description("2 negative login tests")
     @Severity(SeverityLevel.CRITICAL)
-    public void negativeLoginTestData(String username, String password, String expectedErrorMessage) {
+    public void negativeLoginTest(String username, String password, String expectedErrorMessage) {
         loginPage.logIn(username, password);
         Assert.assertEquals(loginPage.getErrorMessageText(), expectedErrorMessage);
 

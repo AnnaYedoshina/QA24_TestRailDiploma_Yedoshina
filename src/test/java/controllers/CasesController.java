@@ -27,7 +27,6 @@ public class CasesController extends BaseController {
                 .get("/index.php?/api/v2/get_case/{case_id}")
                 .then()
                 .log().all()
-                .statusCode(200)
                 .extract().response();
     }
 
@@ -50,7 +49,6 @@ public class CasesController extends BaseController {
                 .post("/index.php?/api/v2/delete_case/{case_id}")
                 .then()
                 .log().all()
-                .statusCode(200)
                 .extract().response();
     }
 

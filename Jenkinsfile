@@ -17,8 +17,7 @@ pipeline {
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
         choice(name: 'SUITE', choices: ['suites/smokeTest.xml', 'suites/regressionTest.xml',], description: 'Choose suite to run')
-        choice (name: 'BROWSER', choices: ['chrome', 'safari'], description: 'Select a browser')
-        booleanParam (name: 'HEADLESS', defaultValue: false, description: 'Headless mode')
+
     }
 
     stages {
@@ -26,7 +25,7 @@ pipeline {
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/AnnaYedoshina/QA24_TestRailDiploma_Yedoshina'
 
-                sh "mvn -Dmaven.test.failure.ignore=true -Dsuite=${params.SUITE} -Dbrowser=${params.BROWSER} -Dheadless=${params.HEADLESS} clean test"
+                sh "mvn -Dmaven.test.failure.ignore=true -Dsuite=${params.SUITE} clean test"
 
             }
 

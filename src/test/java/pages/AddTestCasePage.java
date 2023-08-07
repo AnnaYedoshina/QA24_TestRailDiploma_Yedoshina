@@ -32,16 +32,15 @@ public class AddTestCasePage extends BasePage {
     private static final By PRIORITY = By.id("priority_id_chzn");
     private static final By AUTOMATION_TYPE = By.id("custom_automation_type_chzn");
     private static final By ERROR_MESSAGE_LOCATOR = By.xpath("//div[@class = 'message message-error']");
-    private static final By PENDO_IMAGE = By.xpath("//img[contains(@id,'pendo-image-badge')]");
     private static final By ADD_IMAGE_BUTTON = By.xpath("//div[@id = 'custom_preconds_display']/ancestor::div[@class = 'form-group']/descendant::a[@tooltip-text='Add an image to this text field.']");
     private static final By SUBMIT_ATTACHMENT_BUTTON = By.id("attachmentNewSubmit");
-    private static final By ADD_NEW_BUTTON = By.id("libraryAddAttachment");
-    private static final By FILE_INPUT =By.xpath("//input[@type='file']");
+    private static final By FILE_INPUT = By.xpath("//input[@type='file'][last()]");
+    private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
 
     @Step("Filling out test case '{testCase.title}'")
     public void fillingOutTestCase(TestCase testCase) {
         log.info(String.format("Filling out testCase = %s", testCase));
-        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+        waitForPendoImage();
         new Input(driver, TITLE).setValue(testCase.getTitle());
         new Dropdown(driver, SECTION).selectOptionByText(testCase.getSection().toString(), false);
         new Dropdown(driver, TEMPLATE).selectOptionByText(testCase.getTemplate(), false);
@@ -55,40 +54,39 @@ public class AddTestCasePage extends BasePage {
         new Input(driver, EXPECTED_RESULT).setValue(testCase.getExpectedResult());
     }
 
-    @Step
+    @Step("Clicking addTestCaseButton")
     public void clickAddTestCaseButton() {
         log.info("Clicking addTestCaseButton");
-        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+        waitForPendoImage();
         wait.until(ExpectedConditions.elementToBeClickable(ADD_CASE_BUTTON));
         new Button(driver, ADD_CASE_BUTTON).click();
     }
 
-    @Step
+    @Step("Searching for error message")
     public String gerErrorMessageText() {
         log.info("Searching for error message");
         return driver.findElement(ERROR_MESSAGE_LOCATOR).getText();
 
     }
-    @Step
-    public void clickAddImageButton(){
+
+    @Step("Clicking addImageButton")
+    public void clickAddImageButton() {
         log.info("Clicking addImageButton");
-        new Button(driver,ADD_IMAGE_BUTTON).click();
+        new Button(driver, ADD_IMAGE_BUTTON).click();
 
     }
-    @Step
-    public void uploadFile(){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+    @Step("Uploading file")
+    public void uploadFile() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SUBMIT_ATTACHMENT_BUTTON));
         log.info("Uploading file");
-        new Input(driver,FILE_INPUT).setValue(System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg");
+        new Input(driver, FILE_INPUT).setValue(filePath);
 
     }
-    @Step
-    public void clickSubmitAttachment(){
-        log.info("Clicking addNewButton");
+
+    @Step("Clicking submitAttachment")
+    public void clickSubmitAttachment() {
+        log.info("Clicking submitAttachment");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -96,14 +94,6 @@ public class AddTestCasePage extends BasePage {
         }
         log.info("Clicking submitAttachmentButton");
         new Button(driver, SUBMIT_ATTACHMENT_BUTTON).click();
-
     }
-    @Step
-    public void clickAddNewButton(){
-        new Button(driver,ADD_NEW_BUTTON).click();
-
-
-    }
-
 
 }

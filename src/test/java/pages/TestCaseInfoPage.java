@@ -6,7 +6,6 @@ import models.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class TestCaseInfoPage extends BasePage {
@@ -14,10 +13,9 @@ public class TestCaseInfoPage extends BasePage {
         super(driver);
     }
 
-    private static final By PENDO_IMAGE = By.xpath("//img[contains(@id,'pendo-image-badge')]");
-
+    @Step("Getting test case info")
     public TestCase getTestCaseInfo() {
-        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+        waitForPendoImage();
         TestCase testCase = TestCase.builder()
                 .setTitle(driver.findElement(By.cssSelector(".content-header-title.page_title")).getText())
                 .setSection(driver.findElement(By.xpath("//div[@class = 'content-breadcrumb']")).getText())
@@ -36,10 +34,13 @@ public class TestCaseInfoPage extends BasePage {
 
 
     }
-    @Step
-    public boolean isFileUploaded(){
-        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
+
+    @Step("Checking is file uploaded")
+    public boolean isFileUploaded() {
+        waitForPendoImage();
         WebElement uploadedFile = driver.findElement(By.xpath("//div[contains(@title, 'TestRail')]"));
-        return true;
+        return uploadedFile.isDisplayed();
+
+
     }
 }

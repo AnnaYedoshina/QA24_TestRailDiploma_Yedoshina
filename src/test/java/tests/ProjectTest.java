@@ -1,8 +1,10 @@
 package tests;
 
+import models.Project;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.TestDataGenerator;
 
 
 public class ProjectTest extends BaseTest {
@@ -14,37 +16,33 @@ public class ProjectTest extends BaseTest {
 
     @Test(description = "Check if the project can be created", groups = "smoke", priority = 1)
     public void createProjectTest() {
-        String projectName = faker.app().name() + faker.number().randomDigit();
-        String projectAnnouncement = faker.app().version();
-        createProjectPage.createProject(projectName, projectAnnouncement);
+        Project project = TestDataGenerator.projectGeneration();
+        createProjectPage.createProject(project);
         dashboardPage.open();
-        Assert.assertTrue(dashboardPage.isProjectExist(projectName), "Project was not created");
+        Assert.assertTrue(dashboardPage.isProjectExist(project.getName()), "Project was not created");
     }
 
     @Test(description = "Check if the project can be updated", groups = "regression", priority = 2)
     public void updateProjectTest() {
-        String projectName = faker.app().name() + faker.number().randomDigit();
-        String newProjectName = faker.book().title() + faker.number().randomDigit();
-        String projectAnnouncement = faker.app().version();
-        String newProjectAnnouncement = faker.book().genre();
-        createProjectPage.createProject(projectName, projectAnnouncement);
+        Project project = TestDataGenerator.projectGeneration();
+        Project updatedProject = TestDataGenerator.updatedProjectGeneration();
+        createProjectPage.createProject(project);
         administrationPage.isPageOpened();
-        administrationPage.editProject(projectName);
-        createProjectPage.updateProject(newProjectName, newProjectAnnouncement);
+        administrationPage.editProject(project.getName());
+        createProjectPage.updateProject(updatedProject);
         dashboardPage.open();
-        Assert.assertTrue(dashboardPage.isProjectExist(newProjectName), "Project was not updated");
+        Assert.assertTrue(dashboardPage.isProjectExist(updatedProject.getName()), "Project was not updated");
 
     }
 
     @Test(description = "Check if the project can be deleted", groups = "regression", priority = 3)
     public void deleteProjectTest() {
-        String projectName = faker.app().name() + faker.number().randomDigit();
-        String projectAnnouncement = faker.app().version();
-        createProjectPage.createProject(projectName, projectAnnouncement);
+        Project project = TestDataGenerator.projectGeneration();
+        createProjectPage.createProject(project);
         administrationPage.isPageOpened();
-        administrationPage.deleteProject(projectName);
+        administrationPage.deleteProject(project.getName());
         administrationPage.confirmDeleteProject();
         dashboardPage.open();
-        Assert.assertFalse(dashboardPage.isProjectExist(projectName), "Project has not been deleted");
+        Assert.assertFalse(dashboardPage.isProjectExist(project.getName()), "Project has not been deleted");
     }
 }

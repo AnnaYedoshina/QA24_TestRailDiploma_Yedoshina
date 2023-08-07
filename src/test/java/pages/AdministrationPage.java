@@ -6,7 +6,10 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 @Log4j2
 public class AdministrationPage extends BasePage {
@@ -32,6 +35,7 @@ public class AdministrationPage extends BasePage {
         new Button(driver, By.xpath(String.format(editProjectIconLocator, projectName))).click();
     }
 
+    @Step("Confirmation deleting project")
     public void confirmDeleteProject() {
         log.info("Confirmation deleting project");
         new Checkbox(driver, DELETE_CHECKBOX).check();

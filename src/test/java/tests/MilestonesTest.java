@@ -1,13 +1,15 @@
 package tests;
 
+import models.Milestone;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.TestDataGenerator;
 
 public class MilestonesTest extends BaseTest {
 
     @BeforeMethod(alwaysRun = true)
-    public void addMilestone() {
+    public void loginAndOpenMilestonesTab() {
         loginPage.logIn(USERNAME, PASSWORD);
         dashboardPage.openProject("TestProject");
         projectPage.openMilestoneTab();
@@ -17,35 +19,31 @@ public class MilestonesTest extends BaseTest {
 
 
     @Test(description = "Check if the milestone can be created", groups = "regression")
-    public void createMilestoneTest() throws InterruptedException {
-        String milestoneName = faker.animal().name() + faker.number().randomDigit();
-        String milestoneDescription = faker.country().capital() + faker.number().randomDigit();
-        milestonesTab.createMilestone(milestoneName, milestoneDescription);
-        milestonesTab.openMilestoneTab();
-        Assert.assertTrue(milestonesTab.isMilestoneExist(milestoneName), "Milestone was not created");
+    public void createMilestoneTest() {
+        Milestone milestone = TestDataGenerator.milestoneGeneration();
+        milestonesTab.createMilestone(milestone);
+        Assert.assertTrue(milestonesTab.isMilestoneExist(milestone.getName()), "Milestone was not created");
     }
 
     @Test(description = "Check if the milestone can be updated", groups = "regression")
     public void updatedMilestoneTest() {
-        String milestoneName = faker.country().name() + faker.number().randomDigit();
-        String milestoneDescription = faker.currency().name() + faker.number().randomDigit();
-        String newMilestoneName = faker.country().name() + faker.number().randomDigit();
-        milestonesTab.createMilestone(milestoneName, milestoneDescription);
-        milestonesTab.clickEditMilestone(milestoneName);
-        milestonesTab.updateMilestone(newMilestoneName);
+        Milestone milestone = TestDataGenerator.milestoneGeneration();
+        Milestone updatedMilestone = TestDataGenerator.updatedMilestoneGeneration();
+        milestonesTab.createMilestone(milestone);
+        milestonesTab.clickEditMilestone(milestone.getName());
+        milestonesTab.updateMilestone(updatedMilestone);
         milestonesTab.openMilestoneTab();
-        Assert.assertTrue(milestonesTab.isMilestoneExist(newMilestoneName), "Milestone was not updated");
+        Assert.assertTrue(milestonesTab.isMilestoneExist(updatedMilestone.getName()), "Milestone was not updated");
     }
 
     @Test(description = "Check if the test milestone can be deleted", groups = "regression")
     public void deletedMilestoneTest() {
-        String milestoneName = faker.country().name() + faker.number().randomDigit();
-        String milestoneDescription = faker.country().capital();
-        milestonesTab.createMilestone(milestoneName, milestoneDescription);
-        milestonesTab.clickDeleteMilestone(milestoneName);
+        Milestone milestone = TestDataGenerator.milestoneGeneration();
+        milestonesTab.createMilestone(milestone);
+        milestonesTab.clickDeleteMilestone(milestone.getName());
         milestonesTab.confirmDeleteMilestone();
         milestonesTab.openMilestoneTab();
-        Assert.assertFalse(milestonesTab.isMilestoneExist(milestoneName), "Milestone has not been deleted");
+        Assert.assertFalse(milestonesTab.isMilestoneExist(milestone.getName()), "Milestone has not been deleted");
     }
 }
 

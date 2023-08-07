@@ -1,11 +1,16 @@
 package utils;
 
+import com.github.javafaker.Faker;
+import models.Milestone;
+import models.Project;
+import models.Section;
 import models.TestCase;
 
 public class TestDataGenerator {
+    static Faker faker = new Faker();
     private static final String TITLE = "Позитивное тестирование формы Login";
 
-    public static TestCase positiveTestCaseGeneration(String title){
+    public static TestCase positiveTestCaseGeneration(String title) {
         return TestCase.builder()
                 .setTitle(TITLE)
                 .setSection("Test Cases")
@@ -20,7 +25,8 @@ public class TestDataGenerator {
                 .build();
 
     }
-    public static TestCase negativeTestCaseGeneration(String title){
+
+    public static TestCase negativeTestCaseGeneration() {
         return TestCase.builder()
                 .setTitle("")
                 .setSection("Test Cases")
@@ -33,5 +39,50 @@ public class TestDataGenerator {
                 .setSteps("Заполнить поле email. Заполнить поле password. Нажать кнопку login")
                 .setExpectedResult("Пользователь авторизован")
                 .build();
+    }
+
+    public static Section sectionGeneration() {
+        return Section.builder()
+                .setName(faker.animal().name() + faker.number().randomDigit())
+                .setDescription(faker.country().capital())
+                .build();
+    }
+
+    public static Section updatedSectionGeneration() {
+        return Section.builder()
+                .setName(faker.animal().name() + faker.number().randomDigit())
+                .setDescription(faker.country().capital())
+                .build();
+
+    }
+
+    public static Milestone milestoneGeneration() {
+        return Milestone.builder()
+                .setName(faker.country().name() + faker.number().randomDigit())
+                .setDescription(faker.currency().name() + faker.number().randomDigit())
+                .build();
+    }
+
+    public static Milestone updatedMilestoneGeneration() {
+        return Milestone.builder()
+                .setName(faker.country().name() + faker.number().randomDigit())
+                .setDescription(faker.currency().name() + faker.number().randomDigit())
+                .build();
+
+    }
+
+    public static Project projectGeneration() {
+        return Project.builder()
+                .setName(faker.app().name() + faker.number().randomDigit())
+                .setAnnouncement(faker.app().version())
+                .build();
+    }
+
+    public static Project updatedProjectGeneration() {
+        return Project.builder()
+                .setName(faker.app().name() + faker.number().randomDigit())
+                .setAnnouncement(faker.app().version())
+                .build();
+
     }
 }
