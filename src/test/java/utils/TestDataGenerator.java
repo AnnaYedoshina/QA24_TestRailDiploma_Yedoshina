@@ -48,27 +48,12 @@ public class TestDataGenerator {
                 .build();
     }
 
-    public static Section updatedSectionGeneration() {
-        return Section.builder()
-                .setName(faker.animal().name() + faker.number().randomDigit())
-                .setDescription(faker.country().capital())
-                .build();
-
-    }
 
     public static Milestone milestoneGeneration() {
         return Milestone.builder()
                 .setName(faker.country().name() + faker.number().randomDigit())
                 .setDescription(faker.currency().name() + faker.number().randomDigit())
                 .build();
-    }
-
-    public static Milestone updatedMilestoneGeneration() {
-        return Milestone.builder()
-                .setName(faker.country().name() + faker.number().randomDigit())
-                .setDescription(faker.currency().name() + faker.number().randomDigit())
-                .build();
-
     }
 
     public static Project projectGeneration() {

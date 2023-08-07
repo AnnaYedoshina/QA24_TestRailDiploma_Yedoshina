@@ -28,7 +28,7 @@ public class SectionTest extends BaseTest {
     @Test(description = "Check if the test section can be updated", groups = "regression")
     public void updatedSectionTest() {
         Section section = TestDataGenerator.sectionGeneration();
-        Section updatedSection = TestDataGenerator.updatedSectionGeneration();
+        Section updatedSection = TestDataGenerator.sectionGeneration();
         testCasesTab.createSection(section);
         testCasesTab.clickEditSection(section.getName());
         testCasesTab.updateSection(updatedSection);

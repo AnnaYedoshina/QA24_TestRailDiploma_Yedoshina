@@ -28,7 +28,7 @@ public class MilestonesTest extends BaseTest {
     @Test(description = "Check if the milestone can be updated", groups = "regression")
     public void updatedMilestoneTest() {
         Milestone milestone = TestDataGenerator.milestoneGeneration();
-        Milestone updatedMilestone = TestDataGenerator.updatedMilestoneGeneration();
+        Milestone updatedMilestone = TestDataGenerator.milestoneGeneration();
         milestonesTab.createMilestone(milestone);
         milestonesTab.clickEditMilestone(milestone.getName());
         milestonesTab.updateMilestone(updatedMilestone);

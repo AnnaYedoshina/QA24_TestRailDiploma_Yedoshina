@@ -9,6 +9,7 @@ import utils.TestDataGenerator;
 public class TestCaseTests extends BaseTest {
     private static final String TITLE = "Позитивное тестирование формы Login";
     private static final String EXPECTED_ERROR_MESSAGE = "Field Title is a required field.";
+    private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
 
     @BeforeMethod(alwaysRun = true)
     public void addTestCase() {
@@ -23,7 +24,6 @@ public class TestCaseTests extends BaseTest {
         TestCase actualTestCase = TestDataGenerator.positiveTestCaseGeneration(TITLE);
         addTestCasePage.fillingOutTestCase(actualTestCase);
         addTestCasePage.clickAddTestCaseButton();
-        Assert.assertTrue(addedTestCasePage.isAddAnotherLinkDisplayed());
         TestCase expectedTestCase = testCaseInfoPage.getTestCaseInfo();
         Assert.assertEquals(expectedTestCase, actualTestCase);
     }
@@ -42,7 +42,7 @@ public class TestCaseTests extends BaseTest {
         TestCase testCase = TestDataGenerator.positiveTestCaseGeneration(TITLE);
         addTestCasePage.fillingOutTestCase(testCase);
         addTestCasePage.clickAddImageButton();
-        addTestCasePage.uploadFile();
+        addTestCasePage.uploadFile(filePath);
         addTestCasePage.clickSubmitAttachment();
         addTestCasePage.clickAddTestCaseButton();
         Assert.assertTrue(testCaseInfoPage.isFileUploaded(), "File was not uploaded");

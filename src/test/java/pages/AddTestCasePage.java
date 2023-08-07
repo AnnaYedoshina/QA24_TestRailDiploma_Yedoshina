@@ -35,7 +35,7 @@ public class AddTestCasePage extends BasePage {
     private static final By ADD_IMAGE_BUTTON = By.xpath("//div[@id = 'custom_preconds_display']/ancestor::div[@class = 'form-group']/descendant::a[@tooltip-text='Add an image to this text field.']");
     private static final By SUBMIT_ATTACHMENT_BUTTON = By.id("attachmentNewSubmit");
     private static final By FILE_INPUT = By.xpath("//input[@type='file'][last()]");
-    private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
+
 
     @Step("Filling out test case '{testCase.title}'")
     public void fillingOutTestCase(TestCase testCase) {
@@ -77,7 +77,7 @@ public class AddTestCasePage extends BasePage {
     }
 
     @Step("Uploading file")
-    public void uploadFile() {
+    public void uploadFile(String filePath) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(SUBMIT_ATTACHMENT_BUTTON));
         log.info("Uploading file");
         new Input(driver, FILE_INPUT).setValue(filePath);
