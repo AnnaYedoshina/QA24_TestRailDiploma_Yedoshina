@@ -12,7 +12,7 @@ public class ProjectPage extends BasePage {
         super(driver);
     }
 
-    public String addTestCaseButtonId = "sidebar-cases-add";
+    private static final String addTestCaseButtonId = "sidebar-cases-add";
     private static final By CASE_TAB = By.id("navigation-suites");
     private static final By MILESTONE_TAB = By.id("navigation-milestones");
 

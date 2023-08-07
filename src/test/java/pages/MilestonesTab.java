@@ -26,9 +26,9 @@ public class MilestonesTab extends BasePage {
     private static final By ALL_MILESTONES = By.cssSelector(".summary-title");
     private static final By CONFIRM_DELETE_MILESTONE_BUTTON = By.xpath("//*[@id='deleteDialog']/descendant::a[contains(@class,'button-ok')]");
     private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='top bottom dialog-message']");
-    String milestonesLocator = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
-    String editMilestoneLocator = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
-    String deleteMilestoneLocator = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
+    private static final String milestonesLocator = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
+    private static final String editMilestoneLocator = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
+    private static final String deleteMilestoneLocator = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
 
 
     public void isPageOpened() {
@@ -51,6 +51,7 @@ public class MilestonesTab extends BasePage {
 
     public void openMilestoneTab() {
         log.info("Opening page containing Milestones");
+        waitForPendoImage();
         new Button(driver, MILESTONE_TAB).click();
         try {
             Alert alert = driver.switchTo().alert();
@@ -60,8 +61,6 @@ public class MilestonesTab extends BasePage {
             e.printStackTrace();
         }
     }
-
-
     @Step("Checking the existence of the milestone with title '{milestoneName}'")
     public boolean isMilestoneExist(String milestoneName) {
         waitForPendoImage();
@@ -88,6 +87,7 @@ public class MilestonesTab extends BasePage {
     @Step("Deleting milestone with title '{milestoneName}'")
     public void clickDeleteMilestone(String milestoneName) {
         log.info("Clicking delete Milestone");
+        waitForPendoImage();
         clickIcon(milestoneName, milestonesLocator, deleteMilestoneLocator);
 
     }
@@ -111,6 +111,7 @@ public class MilestonesTab extends BasePage {
     }
 
     private void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
+        waitForPendoImage();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(milestonesLocator, entityName))));
         scroll(entityTitleLocator, entityName);
         hover(entityTitleLocator, entityName);

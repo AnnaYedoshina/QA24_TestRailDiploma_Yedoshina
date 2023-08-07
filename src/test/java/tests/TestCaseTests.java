@@ -14,7 +14,7 @@ public class TestCaseTests extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void addTestCase() {
         loginPage.logIn(USERNAME, PASSWORD);
-        dashboardPage.openProjectByName(NAME);
+        dashboardPage.openProjectByName(PROJECT_NAME);
         projectPage.clickAddTestCasesLink();
 
     }

@@ -23,9 +23,7 @@ public abstract class BaseTest extends BaseApiTest {
     protected static final String BASE_URL = PropertyReader.getProperty("base_url");
     protected static final String USERNAME = PropertyReader.getProperty("username");
     protected static final String PASSWORD = PropertyReader.getProperty("password");
-    protected final static String WRONG_USERNAME = "ayqa245@mailinator.com";
-    protected final static String WRONG_PASSWORD = "Ayqa2414!";
-    protected final static String NAME = "TestProject";
+    protected final static String PROJECT_NAME = "TestProject";
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected AddTestCasePage addTestCasePage;
@@ -36,7 +34,6 @@ public abstract class BaseTest extends BaseApiTest {
     protected AdministrationPage administrationPage;
     protected TestCasesTab testCasesTab;
     protected MilestonesTab milestonesTab;
-    static Faker faker = new Faker();
 
     @Parameters({"browserName"})
     @BeforeClass(alwaysRun = true)

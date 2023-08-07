@@ -113,7 +113,8 @@ public class TestCasesTab extends BasePage {
     @Step("Opening page containing Sections and Cases")
     public void openCaseTab() {
         log.info("Opening page containing Sections and Cases");
-        wait.until(ExpectedConditions.elementToBeClickable(CASE_TAB));
+        waitForPendoImage();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CASE_TAB));
         new Button(driver, CASE_TAB).click();
         try {
             Alert alert = driver.switchTo().alert();

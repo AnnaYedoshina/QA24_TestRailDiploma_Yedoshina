@@ -9,8 +9,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
+    protected final static String WRONG_USERNAME = "ayqa245@mailinator.com";
+    protected final static String WRONG_PASSWORD = "Ayqa2414!";
 
-    private String expectedErrorText = "Email/Login or Password is incorrect. Please try again.";
+    private final static String EXPECTED_ERROR_TEXT = "Email/Login or Password is incorrect. Please try again.";
 
     @Test(groups = {"smoke"}, description = "Positive LoginForm test")
     @Description("Positive login test")
@@ -43,7 +45,7 @@ public class LoginTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void negativeLoginTestWrongEmail() {
         loginPage.logIn(WRONG_USERNAME, PASSWORD);
-        Assert.assertEquals(loginPage.getErrorText(), expectedErrorText);
+        Assert.assertEquals(loginPage.getErrorText(), EXPECTED_ERROR_TEXT);
 
     }
 
@@ -52,7 +54,7 @@ public class LoginTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void negativeLoginTestWrongPassword() {
         loginPage.logIn(USERNAME, WRONG_PASSWORD);
-        Assert.assertEquals(loginPage.getErrorText(), expectedErrorText);
+        Assert.assertEquals(loginPage.getErrorText(), EXPECTED_ERROR_TEXT);
 
 
     }

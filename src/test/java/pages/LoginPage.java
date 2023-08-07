@@ -18,8 +18,8 @@ public class LoginPage extends BasePage {
     private static final By EMAIL_INPUT = By.id("name");
     private static final By PASSWORD_INPUT = By.id("password");
     private static final By LOGIN_BUTTON = By.id("button_primary");
-    private By errorMessage = By.cssSelector(".loginpage-message");
-    private By errorText = By.cssSelector(".error-text");
+    private static final By ERROR_MESSAGE = By.cssSelector(".loginpage-message");
+    private static final By ERROR_TEXT = By.cssSelector(".error-text");
 
     @Step("Logging in")
     public void logIn(String email, String password) {
@@ -31,13 +31,13 @@ public class LoginPage extends BasePage {
 
     @Step
     public String getErrorMessageText() {
-        return driver.findElement(this.errorMessage).getText();
+        return driver.findElement(this.ERROR_MESSAGE).getText();
 
     }
 
     @Step
     public String getErrorText() {
-        return driver.findElement(this.errorText).getText();
+        return driver.findElement(this.ERROR_TEXT).getText();
 
     }
 }
