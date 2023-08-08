@@ -15,6 +15,7 @@ public class CasesApiTests extends BaseApiTest {
     protected int caseId;
     protected String title = "Test testCase";
     protected int sectionId;
+    protected String estimate = "2m";
     static Faker faker = new Faker();
 
     @BeforeClass(alwaysRun = true)
@@ -51,7 +52,7 @@ public class CasesApiTests extends BaseApiTest {
     public void addTestCase() {
         Case testCase = Case.builder()
                 .setTitle(title)
-                .setEstimate("2m")
+                .setEstimate(estimate)
                 .setTypeId(faker.random().nextInt(1, 4))
                 .setPriorityId(faker.random().nextInt(1, 4))
                 .setTemplateId(faker.random().nextInt(1, 3))
@@ -64,16 +65,24 @@ public class CasesApiTests extends BaseApiTest {
 
     @Test(description = "Check if the test case can be gotten by API", priority = 2, groups = "api")
     public void getTestCase() {
+        Case testCase = Case.builder()
+                .setTitle(title)
+                .setEstimate("2m")
+                .setTypeId(faker.random().nextInt(1, 4))
+                .setPriorityId(faker.random().nextInt(1, 4))
+                .setTemplateId(faker.random().nextInt(1, 3))
+                .setSectionId(sectionId)
+                .build();
         Response response = casesController.getTestCase(caseId);
         Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertEquals(response.jsonPath().getString("title"), title);
+        Assert.assertEquals(response.getBody().as(Case.class, ObjectMapperType.GSON), testCase);
     }
 
     @Test(description = "Check if the test case can be updated by API", priority = 3, groups = "api")
     public void updateTestCase() {
         Case testCase = Case.builder()
                 .setTitle("Updated testcase")
-                .setEstimate("2m")
+                .setEstimate(estimate)
                 .setTypeId(faker.random().nextInt(1, 4))
                 .setPriorityId(faker.random().nextInt(1, 4))
                 .setTemplateId(faker.random().nextInt(1, 3))

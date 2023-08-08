@@ -14,8 +14,8 @@ public class AdministrationPage extends BasePage {
     private static final By DELETE_CHECKBOX = By.xpath("//*[@id='deleteDialog']/descendant::input[@name='deleteCheckbox']");
     private static final By CONFIRM_BUTTON = By.xpath("//*[@id='deleteDialog']/descendant::a[contains(@class,'button-ok')]");
     private static final By PROJECTS_ON_NAVIGATION_BAR = By.id("navigation-sub-projects");
-    private static final String deleteProjectIconLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::div[contains(@class,'icon-small-delete')]";
-    private static final String editProjectIconLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::div[contains(@class,'icon-small-edit')]";
+    private static final String DELETE_ICON_PROJECT_LOCATOR = "//*[contains(text(),'%s')]/ancestor::tr/descendant::div[contains(@class,'icon-small-delete')]";
+    private static final String EDIT_PROJECT_ICON_LOCATOR = "//*[contains(text(),'%s')]/ancestor::tr/descendant::div[contains(@class,'icon-small-edit')]";
 
     public AdministrationPage(WebDriver driver) {
         super(driver);
@@ -24,13 +24,13 @@ public class AdministrationPage extends BasePage {
     @Step("Deleting project with title '{projectName}'")
     public void deleteProject(String projectName) {
         log.info("Deleting project with title '{}'", projectName);
-        new Button(driver, By.xpath(String.format(deleteProjectIconLocator, projectName))).click();
+        new Button(driver, By.xpath(String.format(DELETE_ICON_PROJECT_LOCATOR, projectName))).click();
     }
 
     @Step("Editing project with title '{projectName}'")
     public void editProject(String projectName) {
         log.info("Editing project with title '{}'", projectName);
-        new Button(driver, By.xpath(String.format(editProjectIconLocator, projectName))).click();
+        new Button(driver, By.xpath(String.format(EDIT_PROJECT_ICON_LOCATOR, projectName))).click();
     }
 
     @Step("Confirmation deleting project")

@@ -104,8 +104,10 @@ public class TestCasesTab extends BasePage {
     public void createSection(Section section) {
         log.info("Creating section with title '{}'", section.getName());
         waitDisappearBlockingWindow();
+        waitForPendoImage();
         new Input(driver, SECTION_NAME).setValue(section.getName());
         new Input(driver, SECTION_DESCRIPTION).setValue(section.getDescription());
+        wait.until(ExpectedConditions.elementToBeClickable(SUBMIT_SECTION_BUTTON));
         new Button(driver, SUBMIT_SECTION_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(sectionLocator, section.getName()))));
     }

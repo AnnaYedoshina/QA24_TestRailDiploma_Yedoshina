@@ -26,8 +26,14 @@ public class ProjectApiTests extends BaseApiTest {
 
     @Test(description = "Check if the project can be gotten by API", priority = 1, groups = "api")
     public void getProject() {
+        Project project = Project.builder()
+                .setName("New project")
+                .setAnnouncement("Project to check")
+                .setShowAnnouncement(false)
+                .setSuiteMode(1)
+                .build();
         Response response = projectController.getProject(projectId);
-        Assert.assertEquals(response.jsonPath().getString("name"), "New project");
+        Assert.assertEquals(response.getBody().as(Project.class, ObjectMapperType.GSON), project);
     }
 
 

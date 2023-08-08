@@ -1,7 +1,6 @@
 package pages;
 
 import elements.Button;
-import elements.Checkbox;
 import elements.Dropdown;
 import elements.Input;
 import io.qameta.allure.Step;
@@ -10,7 +9,6 @@ import models.TestCase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
 
 @Log4j2
 public class AddTestCasePage extends BasePage {
@@ -86,12 +84,6 @@ public class AddTestCasePage extends BasePage {
 
     @Step("Clicking submitAttachment")
     public void clickSubmitAttachment() {
-        log.info("Clicking submitAttachment");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         log.info("Clicking submitAttachmentButton");
         new Button(driver, SUBMIT_ATTACHMENT_BUTTON).click();
     }

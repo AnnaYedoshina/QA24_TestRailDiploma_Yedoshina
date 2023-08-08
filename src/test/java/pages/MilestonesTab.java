@@ -37,6 +37,7 @@ public class MilestonesTab extends BasePage {
 
     public void clickAddMilestoneButton() {
         log.info("Click 'Add milestone' button");
+        waitForPendoImage();
         new Button(driver, ADD_MILESTONE_BUTTON).click();
     }
 
@@ -61,6 +62,7 @@ public class MilestonesTab extends BasePage {
             e.printStackTrace();
         }
     }
+
     @Step("Checking the existence of the milestone with title '{milestoneName}'")
     public boolean isMilestoneExist(String milestoneName) {
         waitForPendoImage();

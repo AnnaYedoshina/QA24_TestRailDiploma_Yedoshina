@@ -26,9 +26,14 @@ public class MilestoneApiTests extends BaseApiTest {
 
     @Test(description = "Check if the milestone can be gotten by API", priority = 1, groups = "api")
     public void getMilestone() {
+        Milestone milestone = Milestone.builder()
+                .setName("Release 1.0")
+                .setDescription("New features added")
+                .setReferences("RF-1")
+                .build();
         Response response = milestoneController.getMilestone(milestoneId);
         Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertEquals(response.jsonPath().getString("name"), NAME);
+        Assert.assertEquals(response.getBody().as(Milestone.class, ObjectMapperType.GSON), milestone);
     }
 
     @Test(description = "Check if the milestone can be created by API", priority = 2, groups = "api")
@@ -47,7 +52,7 @@ public class MilestoneApiTests extends BaseApiTest {
     public void updateMilestone() {
         Milestone milestone = Milestone.builder()
                 .setName("Release 1.1")
-                .setDescription("New features added")
+                .setDescription("Updated milestone")
                 .setReferences("RF-2")
                 .build();
         Response response = milestoneController.updateMilestone(milestone, milestoneId);
