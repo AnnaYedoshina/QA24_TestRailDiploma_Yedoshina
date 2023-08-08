@@ -52,7 +52,7 @@ public class MilestoneApiTests extends BaseApiTest {
     public void updateMilestone() {
         Milestone milestone = Milestone.builder()
                 .setName("Release 1.1")
-                .setDescription("Updated milestone")
+                .setDescription("New features added")
                 .setReferences("RF-2")
                 .build();
         Response response = milestoneController.updateMilestone(milestone, milestoneId);

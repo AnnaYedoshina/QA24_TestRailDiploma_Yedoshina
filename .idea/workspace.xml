@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="some mistakes corrected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/BaseApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/BaseApiTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/CasesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/CasesApiTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/MilestoneApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/MilestoneApiTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/ProjectApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/ProjectApiTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AddTestCasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AddTestCasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +77,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml">
+  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/apiTest.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="QA24_TestRailDiploma_Yedoshina" />
       <method v="2">
@@ -95,17 +91,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CasesApiTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="api_tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.SectionTest" />
+      <option name="PACKAGE_NAME" value="api_tests" />
+      <option name="MAIN_CLASS_NAME" value="api_tests.CasesApiTests" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectApiTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api_tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api_tests" />
+      <option name="MAIN_CLASS_NAME" value="api_tests.ProjectApiTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectApiTests.createProjectFromFile" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api_tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api_tests" />
+      <option name="MAIN_CLASS_NAME" value="api_tests.ProjectApiTests" />
+      <option name="METHOD_NAME" value="createProjectFromFile" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -132,39 +163,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/smokeTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/smokeTest.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="pages" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pages" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
-        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/smokeTest.xml" />
         <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/apiTest.xml" />
-        <item itemvalue="TestNG.SectionTest" />
-        <item itemvalue="TestNG.pages" />
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
+        <item itemvalue="TestNG.CasesApiTests" />
+        <item itemvalue="TestNG.ProjectApiTests" />
+        <item itemvalue="TestNG.ProjectApiTests.createProjectFromFile" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +239,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691437105060</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="some mistakes corrected">
+      <created>1691491899546</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691491899546</updated>
+    </task>
+    <task id="LOCAL-00010" summary="some mistakes corrected">
+      <created>1691496644564</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691496644564</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
