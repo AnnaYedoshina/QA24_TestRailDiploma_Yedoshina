@@ -23,6 +23,7 @@ public class TestCaseInfoPage extends BasePage {
     private static final By PRECONDITIONS_LOCATOR = By.xpath("//span[@class =  'field-title-inner' and text() = 'Preconditions']/parent::div/following-sibling::div[@class='field-content'][1]//p");
     private static final By STEPS_LOCATOR = By.xpath("//span[@class='field-title-inner' and text() = 'Steps']/parent::div/following-sibling::div[@class='field-content'][1]//p");
     private static final By EXPECTED_RESULT_LOCATOR = By.xpath("//span[@class='field-title-inner' and text() = 'Expected Result']/parent::div/following-sibling::div[@class='field-content'][1]//p");
+    private static final By UPLOADED_FILE = By.xpath("//div[contains(@title, '%S')]");
 
     @Step("Getting test case info")
     public TestCase getTestCaseInfo() {
@@ -40,15 +41,12 @@ public class TestCaseInfoPage extends BasePage {
                 .setExpectedResult(driver.findElement(EXPECTED_RESULT_LOCATOR).getText()).build();
         return testCase;
 
-
     }
 
     @Step("Checking is file uploaded")
-    public boolean isFileUploaded() {
+    public boolean isFileUploaded(String fileName) {
         waitForPendoImage();
-        WebElement uploadedFile = driver.findElement(By.xpath("//div[contains(@title, 'TestRail')]"));
+        WebElement uploadedFile = driver.findElement(By.xpath(String.format("//div[contains(@title, '%s')]", fileName)));
         return uploadedFile.isDisplayed();
-
-
     }
 }

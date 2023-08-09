@@ -9,8 +9,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
-    protected final static String WRONG_USERNAME = "ayqa245@mailinator.com";
-    protected final static String WRONG_PASSWORD = "Ayqa2414!";
+    private final static String WRONG_USERNAME = "ayqa245@mailinator.com";
+    private final static String WRONG_PASSWORD = "Ayqa2414!";
 
     private final static String EXPECTED_ERROR_TEXT = "Email/Login or Password is incorrect. Please try again.";
 

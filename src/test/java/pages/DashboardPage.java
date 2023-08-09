@@ -24,13 +24,7 @@ public class DashboardPage extends BasePage {
     public void open() {
         log.info("Opening Dashboard page");
         driver.get(BASE_URL + "index.php?/dashboard");
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        } catch (NoAlertPresentException e) {
-            e.printStackTrace();
-        }
+        acceptAlertIfPresent();
     }
 
     @Step("Clicking addProject button")

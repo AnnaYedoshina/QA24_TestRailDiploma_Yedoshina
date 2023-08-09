@@ -10,6 +10,8 @@ public class TestCaseTests extends BaseTest {
     private static final String TITLE = "Позитивное тестирование формы Login";
     private static final String EXPECTED_ERROR_MESSAGE = "Field Title is a required field.";
     private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
+    private static final String FILE_NAME = "TestRail";
+
 
     @BeforeMethod(alwaysRun = true)
     public void addTestCase() {
@@ -45,7 +47,7 @@ public class TestCaseTests extends BaseTest {
         addTestCasePage.uploadFile(filePath);
         addTestCasePage.clickSubmitAttachment();
         addTestCasePage.clickAddTestCaseButton();
-        Assert.assertTrue(testCaseInfoPage.isFileUploaded(), "File was not uploaded");
+        Assert.assertTrue(testCaseInfoPage.isFileUploaded(FILE_NAME), "File was not uploaded");
 
 
     }

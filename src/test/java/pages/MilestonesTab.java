@@ -52,13 +52,7 @@ public class MilestonesTab extends BaseTabPage {
         log.info("Opening page containing Milestones");
         waitForPendoImage();
         new Button(driver, MILESTONE_TAB).click();
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        } catch (NoAlertPresentException e) {
-            e.printStackTrace();
-        }
+        acceptAlertIfPresent();
     }
 
     @Step("Checking the existence of the milestone with title '{milestoneName}'")
@@ -89,7 +83,6 @@ public class MilestonesTab extends BaseTabPage {
         log.info("Clicking delete Milestone");
         waitForPendoImage();
         clickIcon(milestoneName, MILESTONE_LOCATOR, DELETE_MILESTONE_LOCATOR);
-
     }
 
     @Step("Confirmation delete milestone")
@@ -100,15 +93,15 @@ public class MilestonesTab extends BaseTabPage {
     }
 
 
-    private void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
-        waitForPendoImage();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(MILESTONE_LOCATOR, entityName))));
-        scroll(entityTitleLocator, entityName);
-        hover(entityTitleLocator, entityName);
-        WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(iconActionLocator, entityName))));
-        icon.click();
-    }
+//    private void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
+//        waitForPendoImage();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(MILESTONE_LOCATOR, entityName))));
+//        scroll(entityTitleLocator, entityName);
+//        hover(entityTitleLocator, entityName);
+//        WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(iconActionLocator, entityName))));
+//        icon.click();
+//    }
 
 }
 

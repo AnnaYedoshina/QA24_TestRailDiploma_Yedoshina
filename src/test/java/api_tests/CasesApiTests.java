@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import models.Case;
-import models.Project;
 import models.Section;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -20,14 +19,6 @@ public class CasesApiTests extends BaseApiTest {
 
     @BeforeClass(alwaysRun = true)
     public void addNewTestCase() {
-        Project project = Project.builder()
-                .setName("TestProject")
-                .setAnnouncement("Project for testing")
-                .setShowAnnouncement(false)
-                .setSuiteMode(1)
-                .build();
-        Response responseProject = projectController.addProject(project);
-        projectId = responseProject.getBody().jsonPath().getInt("id");
         Section section = Section.builder()
                 .setName("Test section")
                 .setDescription("Our test section")

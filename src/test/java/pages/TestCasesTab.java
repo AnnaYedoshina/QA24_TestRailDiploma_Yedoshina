@@ -28,10 +28,10 @@ public class TestCasesTab extends BaseTabPage {
     private static final By DELETE_SECTION_CHECKBOX = By.xpath("//*[@id='deleteDialog']/descendant::input[@name='deleteCheckbox']");
     private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_SECTION_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='dialog-extra text-delete']");
     private static final By BLOCK_WINDOW = By.cssSelector("[class='blockUI blockOverlay']");
-    String deleteSectionIconLocator = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-delete')]";
-    String editSectionIconLocator = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-edit')]";
-    String caseLocator = "//div[contains(@class,'grid-container')]/descendant::span[text()='%s']";
-    String sectionLocator = "//div[contains(@class,'grid-container')]/descendant::span[contains(@id,'sectionName') and text()='%s']";
+    private static final String DELETE_SECTION_ICON_LOCATOR = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-delete')]";
+    private static final String EDIT_SECTION_ICON_LOCATOR = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-edit')]";
+    private static final String CASE_LOCATOR = "//div[contains(@class,'grid-container')]/descendant::span[text()='%s']";
+    private static final String SECTION_LOCATOR = "//div[contains(@class,'grid-container')]/descendant::span[contains(@id,'sectionName') and text()='%s']";
 
 
     private void waitDisappearBlockingWindow() {
@@ -41,33 +41,28 @@ public class TestCasesTab extends BaseTabPage {
     @Step("Checking the existence of the section with title '{sectionName}'")
     public boolean isSectionExist(String sectionName) {
         log.info("Checking the existence of the section with title '{}'", sectionName);
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        } catch (NoAlertPresentException e) {
-        }
+        acceptAlertIfPresent();
         return isEntityExist(sectionName, ALL_SECTIONS);
     }
 
-    public void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(caseLocator, entityName))));
-        scroll(entityTitleLocator, entityName);
-        hover(entityTitleLocator, entityName);
-        WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(iconActionLocator, entityName))));
-        log.info("Click edit/delete icon");
-        icon.click();
-    }
+//    protected void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(CASE_LOCATOR, entityName))));
+//        scroll(entityTitleLocator, entityName);
+//        hover(entityTitleLocator, entityName);
+//        WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(iconActionLocator, entityName))));
+//        log.info("Click edit/delete icon");
+//        icon.click();
+//    }
 
     @Step("Editing section with title '{sectionName}'")
     public void clickEditSection(String sectionName) {
-        clickIcon(sectionName, sectionLocator, editSectionIconLocator);
+        clickIcon(sectionName, SECTION_LOCATOR, EDIT_SECTION_ICON_LOCATOR);
     }
 
     @Step("Deleting section with title '{sectionName}'")
     public void clickDeleteSection(String sectionName) {
-        clickIcon(sectionName, sectionLocator, deleteSectionIconLocator);
+        clickIcon(sectionName, SECTION_LOCATOR, DELETE_SECTION_ICON_LOCATOR);
     }
 
     public void isPageOpened() {
@@ -97,7 +92,7 @@ public class TestCasesTab extends BaseTabPage {
         new Input(driver, SECTION_DESCRIPTION).setValue(section.getDescription());
         wait.until(ExpectedConditions.elementToBeClickable(SUBMIT_SECTION_BUTTON));
         new Button(driver, SUBMIT_SECTION_BUTTON).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(sectionLocator, section.getName()))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(SECTION_LOCATOR, section.getName()))));
     }
 
     @Step("Opening page containing Sections and Cases")
@@ -106,13 +101,7 @@ public class TestCasesTab extends BaseTabPage {
         waitForPendoImage();
         wait.until(ExpectedConditions.elementToBeClickable(CASE_TAB));
         new Button(driver, CASE_TAB).click();
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        } catch (NoAlertPresentException e) {
-            e.printStackTrace();
-        }
+        acceptAlertIfPresent();
     }
 
     @Step("Confirmation delete section")
@@ -134,6 +123,6 @@ public class TestCasesTab extends BaseTabPage {
         new Input(driver, SECTION_DESCRIPTION).clearValue();
         new Input(driver, SECTION_DESCRIPTION).setValue(section.getDescription());
         new Button(driver, SUBMIT_SECTION_BUTTON).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(sectionLocator, section.getName()))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(SECTION_LOCATOR, section.getName()))));
     }
 }
