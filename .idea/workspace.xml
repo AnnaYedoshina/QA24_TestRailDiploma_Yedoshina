@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="some mistakes corrected">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/BaseTabPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BaseTabPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BaseTabPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml">
+  <component name="RunManager" selected="TestNG.MilestonesTest.updatedMilestoneTest">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="QA24_TestRailDiploma_Yedoshina" />
       <method v="2">
@@ -86,41 +85,6 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="QA24_TestRailDiploma_Yedoshina" />
       <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MilestonesTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MilestonesTest.deletedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="METHOD_NAME" value="deletedMilestoneTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,6 +125,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/apiTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/apiTest.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/regressionTest.xml" />
@@ -171,13 +145,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/smokeTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/smokeTest.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
         <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/smokeTest.xml" />
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/apiTest.xml" />
         <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
-        <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
-        <item itemvalue="TestNG.MilestonesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -268,7 +252,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691523251268</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="some mistakes corrected">
+      <created>1691568081510</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1691568081510</updated>
+    </task>
+    <task id="LOCAL-00013" summary="some mistakes corrected">
+      <created>1691573544084</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1691573544084</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

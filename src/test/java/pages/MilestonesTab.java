@@ -25,7 +25,6 @@ public class MilestonesTab extends BaseTabPage {
     private static final By ALL_MILESTONES = By.cssSelector(".summary-title");
     private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='top bottom dialog-message']");
     private static final String MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
-
     private static final String EDIT_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
     private static final String DELETE_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
 
