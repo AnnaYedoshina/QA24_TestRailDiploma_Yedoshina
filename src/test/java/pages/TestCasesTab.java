@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 @Log4j2
-public class TestCasesTab extends BasePage {
+public class TestCasesTab extends BaseTabPage {
     public TestCasesTab(WebDriver driver) {
         super(driver);
     }
@@ -26,7 +26,6 @@ public class TestCasesTab extends BasePage {
     private static final By ALL_SECTIONS = By.xpath("//div[contains(@class,'grid-container')]/descendant::span[contains(@id,'sectionName')]");
     private static final By CASE_TAB = By.id("navigation-suites");
     private static final By DELETE_SECTION_CHECKBOX = By.xpath("//*[@id='deleteDialog']/descendant::input[@name='deleteCheckbox']");
-    private static final By CONFIRM_DELETE_SECTION_BUTTON = By.xpath("//*[@id='deleteDialog']/descendant::a[contains(@class,'button-ok')]");
     private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_SECTION_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='dialog-extra text-delete']");
     private static final By BLOCK_WINDOW = By.cssSelector("[class='blockUI blockOverlay']");
     String deleteSectionIconLocator = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-delete')]";
@@ -37,17 +36,6 @@ public class TestCasesTab extends BasePage {
 
     private void waitDisappearBlockingWindow() {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(BLOCK_WINDOW));
-    }
-
-    private boolean isEntityExist(String entityName, By entityLocator) {
-        List<WebElement> entitiesList = driver.findElements(entityLocator);
-        boolean isEntityExist = false;
-        for (WebElement entity : entitiesList) {
-            if (entity.getText().equals(entityName)) {
-                isEntityExist = true;
-            }
-        }
-        return isEntityExist;
     }
 
     @Step("Checking the existence of the section with title '{sectionName}'")
@@ -62,7 +50,7 @@ public class TestCasesTab extends BasePage {
         return isEntityExist(sectionName, ALL_SECTIONS);
     }
 
-    private void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
+    public void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(caseLocator, entityName))));
         scroll(entityTitleLocator, entityName);
         hover(entityTitleLocator, entityName);
@@ -132,7 +120,7 @@ public class TestCasesTab extends BasePage {
         log.info("Confirmation delete section");
         wait.until(ExpectedConditions.visibilityOfElementLocated(WARNING_MESSAGE_IN_CONFIRMATION_DELETE_SECTION_WINDOW));
         new Checkbox(driver, DELETE_SECTION_CHECKBOX).check();
-        new Button(driver, CONFIRM_DELETE_SECTION_BUTTON).click();
+        confirmDelete();
     }
 
     @Step("Creating new section with title '{newSectionName}'")

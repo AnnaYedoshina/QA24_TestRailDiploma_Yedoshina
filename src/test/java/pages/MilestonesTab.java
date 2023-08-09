@@ -8,10 +8,9 @@ import models.Milestone;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
 
 @Log4j2
-public class MilestonesTab extends BasePage {
+public class MilestonesTab extends BaseTabPage {
 
     public MilestonesTab(WebDriver driver) {
         super(driver);
@@ -24,11 +23,11 @@ public class MilestonesTab extends BasePage {
     private static final By SUBMIT_MILESTONE_BUTTON = By.id("accept");
     private static final By MILESTONE_TAB = By.id("navigation-milestones");
     private static final By ALL_MILESTONES = By.cssSelector(".summary-title");
-    private static final By CONFIRM_DELETE_MILESTONE_BUTTON = By.xpath("//*[@id='deleteDialog']/descendant::a[contains(@class,'button-ok')]");
     private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='top bottom dialog-message']");
-    private static final String milestonesLocator = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
-    private static final String editMilestoneLocator = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
-    private static final String deleteMilestoneLocator = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
+    private static final String MILESTONE_LOCATOR= "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
+
+    private static final String EDIT_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
+    private static final String DELETE_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
 
 
     public void isPageOpened() {
@@ -67,7 +66,7 @@ public class MilestonesTab extends BasePage {
     public boolean isMilestoneExist(String milestoneName) {
         waitForPendoImage();
         log.info("Checking the existence of the milestone with title '{}'", milestoneName);
-        return isMilestoneExist(milestoneName, ALL_MILESTONES);
+        return isEntityExist(milestoneName, ALL_MILESTONES);
     }
 
     @Step("Creating new milestone with title '{newMilestoneName}'")
@@ -83,14 +82,14 @@ public class MilestonesTab extends BasePage {
     @Step("Editing milestone with title '{milestoneName}'")
     public void clickEditMilestone(String milestoneName) {
         log.info("Clicking edit Milestone");
-        clickIcon(milestoneName, milestonesLocator, editMilestoneLocator);
+        clickIcon(milestoneName, MILESTONE_LOCATOR, EDIT_MILESTONE_LOCATOR);
     }
 
     @Step("Deleting milestone with title '{milestoneName}'")
     public void clickDeleteMilestone(String milestoneName) {
         log.info("Clicking delete Milestone");
         waitForPendoImage();
-        clickIcon(milestoneName, milestonesLocator, deleteMilestoneLocator);
+        clickIcon(milestoneName, MILESTONE_LOCATOR, DELETE_MILESTONE_LOCATOR);
 
     }
 
@@ -98,23 +97,13 @@ public class MilestonesTab extends BasePage {
     public void confirmDeleteMilestone() {
         log.info("Confirmation delete milestone");
         wait.until(ExpectedConditions.visibilityOfElementLocated(WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW));
-        new Button(driver, CONFIRM_DELETE_MILESTONE_BUTTON).click();
+        confirmDelete();
     }
 
-    private boolean isMilestoneExist(String entityName, By entityLocator) {
-        List<WebElement> entitiesList = driver.findElements(entityLocator);
-        boolean isEntityExist = false;
-        for (WebElement entity : entitiesList) {
-            if (entity.getText().equals(entityName)) {
-                isEntityExist = true;
-            }
-        }
-        return isEntityExist;
-    }
 
     private void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
         waitForPendoImage();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(milestonesLocator, entityName))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(MILESTONE_LOCATOR, entityName))));
         scroll(entityTitleLocator, entityName);
         hover(entityTitleLocator, entityName);
         WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
