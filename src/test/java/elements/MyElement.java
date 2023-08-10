@@ -127,8 +127,7 @@ public class MyElement implements WebElement {
     public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
         return element.getScreenshotAs(target);
     }
-
-    private void scrollIntoView() {
+    public void scrollIntoView() {
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", this.element);
     }
 }

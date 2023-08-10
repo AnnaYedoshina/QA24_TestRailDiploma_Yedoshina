@@ -1,4 +1,5 @@
 package api_tests;
+
 import com.google.gson.Gson;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
@@ -6,35 +7,18 @@ import models.Project;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class ProjectApiTests extends BaseApiTest {
-    private int projectId;
-
-    @BeforeClass(alwaysRun = true)
-    public void addNewProject() {
-        Project project = Project.builder()
-                .setName("New project")
-                .setAnnouncement("Project to check")
-                .setShowAnnouncement(false)
-                .setSuiteMode(1)
-                .build();
-        Response response = projectController.addProject(project);
-        projectId = response.getBody().jsonPath().getInt("id");
-    }
 
     @Test(description = "Check if the project can be gotten by API", priority = 1, groups = "api")
     public void getProject() {
-        Project project = Project.builder()
-                .setName("New project")
-                .setAnnouncement("Project to check")
-                .setShowAnnouncement(false)
-                .setSuiteMode(1)
-                .build();
         Response response = projectController.getProject(projectId);
+        Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.getBody().as(Project.class, ObjectMapperType.GSON), project);
 
     }
@@ -66,11 +50,12 @@ public class ProjectApiTests extends BaseApiTest {
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.getBody().as(Project.class, ObjectMapperType.GSON), project);
     }
+
     @Test(description = "Check if the project can be updated by API", priority = 4, groups = "api")
     public void updateProject() {
         Project project = Project.builder()
-                .setName("New project")
-                .setAnnouncement("Project to check")
+                .setName("Updated project")
+                .setAnnouncement("Project to update")
                 .setShowAnnouncement(false)
                 .setSuiteMode(1)
                 .build();

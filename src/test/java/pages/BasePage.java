@@ -1,5 +1,6 @@
 package pages;
 
+import elements.Checkbox;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +16,9 @@ public class BasePage {
     protected WebDriverWait wait;
     protected static final String BASE_URL = PropertyReader.getProperty("base_url");
     private static final By PENDO_IMAGE = By.xpath("//img[contains(@id,'pendo-image-badge')]");
+    private static final By PENDO_IMAGE_BUBBLE = By.xpath("//style[@id = 'pendo-resource-center-bubble-animation']/following-sibling::div");
+    private static final By CONFIRM_DELETE_BUTTON = By.xpath("//*[@id='deleteDialog']/descendant::a[contains(@class,'button-ok')]");
+
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -40,6 +44,10 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
 
     }
+    public void waitForPendoBubbleImage() {
+        wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE_BUBBLE));
+
+    }
 
     public void acceptAlertIfPresent() {
         try {
@@ -49,6 +57,22 @@ public class BasePage {
         } catch (NoAlertPresentException e) {
             e.printStackTrace();
         }
+    }
+    public void scrollIntoView(String locator) {
+        WebElement element = driver.findElement(By.xpath(locator));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void hover(String locator) {
+        Actions actions = new Actions(driver);
+        WebElement element = driver.findElement(By.xpath(locator));
+        actions.moveToElement(element).build().perform();
+    }
+    public void confirmDelete() {
+        new Checkbox(driver, CONFIRM_DELETE_BUTTON).check();
+    }
+    public void waitForElementVisibility(String locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }
 
 

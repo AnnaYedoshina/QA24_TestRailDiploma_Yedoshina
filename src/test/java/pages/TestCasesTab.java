@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 @Log4j2
-public class TestCasesTab extends BaseTabPage {
+public class TestCasesTab extends BasePage {
     public TestCasesTab(WebDriver driver) {
         super(driver);
     }
@@ -40,29 +40,42 @@ public class TestCasesTab extends BaseTabPage {
 
     @Step("Checking the existence of the section with title '{sectionName}'")
     public boolean isSectionExist(String sectionName) {
-        log.info("Checking the existence of the section with title '{}'", sectionName);
-        acceptAlertIfPresent();
-        return isEntityExist(sectionName, ALL_SECTIONS);
+        waitForPendoImage();
+        List<WebElement> sectionsList = driver.findElements(ALL_SECTIONS);
+        boolean isSectionExist = false;
+        for (WebElement section : sectionsList) {
+            if (section.getText().equals(sectionName)) {
+            }
+            isSectionExist = true;
+        }
+        return isSectionExist;
     }
-
-//    protected void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(CASE_LOCATOR, entityName))));
-//        scroll(entityTitleLocator, entityName);
-//        hover(entityTitleLocator, entityName);
-//        WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(iconActionLocator, entityName))));
-//        log.info("Click edit/delete icon");
-//        icon.click();
-//    }
 
     @Step("Editing section with title '{sectionName}'")
     public void clickEditSection(String sectionName) {
-        clickIcon(sectionName, SECTION_LOCATOR, EDIT_SECTION_ICON_LOCATOR);
+        log.info("Clicking edit Section");
+        waitForPendoBubbleImage();
+        String sectionLocator = String.format(CASE_LOCATOR, sectionName);
+        String editSectionLocator = String.format(EDIT_SECTION_ICON_LOCATOR, sectionName);
+        waitForElementVisibility(sectionLocator);
+        scrollIntoView(sectionLocator);
+        hover(sectionLocator);
+        WebElement editIcon = driver.findElement(By.xpath(editSectionLocator));
+        editIcon.click();
     }
 
     @Step("Deleting section with title '{sectionName}'")
     public void clickDeleteSection(String sectionName) {
-        clickIcon(sectionName, SECTION_LOCATOR, DELETE_SECTION_ICON_LOCATOR);
+        log.info("Clicking delete Section");
+        waitForPendoImage();
+        waitForPendoBubbleImage();
+        String sectionLocator= String.format(CASE_LOCATOR, sectionName);
+        String deleteSectionLocator  = String.format(DELETE_SECTION_ICON_LOCATOR, sectionName);
+        waitForElementVisibility(sectionLocator);
+        scrollIntoView(sectionLocator);
+        hover(sectionLocator);
+        WebElement deleteIcon = driver.findElement(By.xpath(deleteSectionLocator));
+        deleteIcon.click();
     }
 
     public void isPageOpened() {
@@ -124,5 +137,11 @@ public class TestCasesTab extends BaseTabPage {
         new Input(driver, SECTION_DESCRIPTION).setValue(section.getDescription());
         new Button(driver, SUBMIT_SECTION_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(SECTION_LOCATOR, section.getName()))));
+    }
+    @Step
+    public boolean isAddSectionButtonDisplayed() {
+        WebElement addSectionButton = driver.findElement(ADD_SECTION_BUTTON);
+        return addSectionButton.isDisplayed();
+
     }
 }

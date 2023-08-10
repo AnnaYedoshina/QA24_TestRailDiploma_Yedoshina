@@ -8,9 +8,11 @@ import models.Milestone;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 
 @Log4j2
-public class MilestonesTab extends BaseTabPage {
+public class MilestonesTab extends BasePage {
 
     public MilestonesTab(WebDriver driver) {
         super(driver);
@@ -27,7 +29,7 @@ public class MilestonesTab extends BaseTabPage {
     private static final String MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
     private static final String EDIT_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
     private static final String DELETE_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
-
+    private static final By SUCCESSFULLY_DELETE_MESSAGE = By.xpath("//div[text() = 'Successfully deleted the milestone (s).'] ");
 
     public void isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(PAGE_TITLE));
@@ -43,6 +45,7 @@ public class MilestonesTab extends BaseTabPage {
     public void createMilestone(Milestone milestone) {
         log.info("Creating milestone with title '{}'", milestone.getName());
         waitForPendoImage();
+        waitForPendoBubbleImage();
         new Input(driver, MILESTONE_NAME).setValue(milestone.getName());
         new Input(driver, MILESTONE_DESCRIPTION).setValue(milestone.getDescription());
         new Button(driver, SUBMIT_MILESTONE_BUTTON).click();
@@ -51,20 +54,28 @@ public class MilestonesTab extends BaseTabPage {
     public void openMilestoneTab() {
         log.info("Opening page containing Milestones");
         waitForPendoImage();
+        waitForPendoBubbleImage();
         new Button(driver, MILESTONE_TAB).click();
-        acceptAlertIfPresent();
     }
 
     @Step("Checking the existence of the milestone with title '{milestoneName}'")
     public boolean isMilestoneExist(String milestoneName) {
         waitForPendoImage();
-        log.info("Checking the existence of the milestone with title '{}'", milestoneName);
-        return isEntityExist(milestoneName, ALL_MILESTONES);
+        waitForPendoBubbleImage();
+        List<WebElement> milestonesList = driver.findElements(ALL_MILESTONES);
+        for (WebElement milestone : milestonesList) {
+            if (milestone.getText().equals(milestoneName)) {
+            }
+            return true;
+        }
+        return false;
     }
 
     @Step("Creating new milestone with title '{newMilestoneName}'")
     public void updateMilestone(Milestone milestone) {
         log.info("Updating primary milestone to milestone with title '{}'", milestone.getName());
+        waitForPendoImage();
+        waitForPendoBubbleImage();
         wait.until(ExpectedConditions.visibilityOfElementLocated(SUBMIT_MILESTONE_BUTTON));
         new Input(driver, MILESTONE_NAME).clearValue();
         new Input(driver, MILESTONE_NAME).setValue(milestone.getName());
@@ -75,14 +86,30 @@ public class MilestonesTab extends BaseTabPage {
     @Step("Editing milestone with title '{milestoneName}'")
     public void clickEditMilestone(String milestoneName) {
         log.info("Clicking edit Milestone");
-        clickIcon(milestoneName, MILESTONE_LOCATOR, EDIT_MILESTONE_LOCATOR);
+        waitForPendoBubbleImage();
+        String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
+        String editMilestoneLocator = String.format(EDIT_MILESTONE_LOCATOR, milestoneName);
+        waitForElementVisibility(milestoneLocator);
+        scrollIntoView(milestoneLocator);
+        hover(milestoneLocator);
+        WebElement editIcon = driver.findElement(By.xpath(editMilestoneLocator));
+        waitForElementVisibility(editMilestoneLocator);
+        editIcon.click();
     }
 
     @Step("Deleting milestone with title '{milestoneName}'")
     public void clickDeleteMilestone(String milestoneName) {
         log.info("Clicking delete Milestone");
         waitForPendoImage();
-        clickIcon(milestoneName, MILESTONE_LOCATOR, DELETE_MILESTONE_LOCATOR);
+        waitForPendoBubbleImage();
+        String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
+        String deleteMilestoneLocator = String.format(DELETE_MILESTONE_LOCATOR, milestoneName);
+        waitForElementVisibility(milestoneLocator);
+        scrollIntoView(milestoneLocator);
+        hover(milestoneLocator);
+        WebElement deleteIcon = driver.findElement(By.xpath(deleteMilestoneLocator));
+        waitForElementVisibility(deleteMilestoneLocator);
+        deleteIcon.click();
     }
 
     @Step("Confirmation delete milestone")
@@ -90,18 +117,13 @@ public class MilestonesTab extends BaseTabPage {
         log.info("Confirmation delete milestone");
         wait.until(ExpectedConditions.visibilityOfElementLocated(WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW));
         confirmDelete();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SUCCESSFULLY_DELETE_MESSAGE));
+        waitForPendoBubbleImage();
     }
 
 
-//    private void clickIcon(String entityName, String entityTitleLocator, String iconActionLocator) {
-//        waitForPendoImage();
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(MILESTONE_LOCATOR, entityName))));
-//        scroll(entityTitleLocator, entityName);
-//        hover(entityTitleLocator, entityName);
-//        WebElement icon = driver.findElement(By.xpath(String.format(iconActionLocator, entityName)));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(iconActionLocator, entityName))));
-//        icon.click();
-//    }
-
 }
+
+
+
 

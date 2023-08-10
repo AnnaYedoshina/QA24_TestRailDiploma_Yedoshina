@@ -15,7 +15,6 @@ public class CasesApiTests extends BaseApiTest {
     protected String title = "Test testCase";
     protected int sectionId;
     protected String estimate = "2m";
-    static Faker faker = new Faker();
 
     @BeforeClass(alwaysRun = true)
     public void addNewTestCase() {

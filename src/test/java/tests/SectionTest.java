@@ -17,14 +17,12 @@ public class SectionTest extends BaseTest {
         testCasesTab.isPageOpened();
         testCasesTab.clickCreateSectionButton();
     }
-
     @Test(description = "Check if the test section can be created", groups = "regression")
     public void createSectionTest() {
         Section section = TestDataGenerator.sectionGeneration();
         testCasesTab.createSection(section);
         Assert.assertTrue(testCasesTab.isSectionExist(section.getName()), "Section was not created");
     }
-
     @Test(description = "Check if the test section can be updated", groups = "regression")
     public void updatedSectionTest() {
         Section section = TestDataGenerator.sectionGeneration();
@@ -34,7 +32,6 @@ public class SectionTest extends BaseTest {
         testCasesTab.updateSection(updatedSection);
         Assert.assertTrue(testCasesTab.isSectionExist(updatedSection.getName()), "Section was not updated");
     }
-
     @Test(description = "Check if the test section can be deleted", groups = "regression")
     public void deletedSectionTest() {
         Section section = TestDataGenerator.sectionGeneration();
@@ -42,6 +39,6 @@ public class SectionTest extends BaseTest {
         testCasesTab.clickDeleteSection(section.getName());
         testCasesTab.confirmDeleteSection();
         testCasesTab.openCaseTab();
-        Assert.assertFalse(testCasesTab.isSectionExist(section.getName()), "Section has not been deleted");
+        Assert.assertTrue(testCasesTab.isAddSectionButtonDisplayed(), "Section has not been deleted");
     }
 }

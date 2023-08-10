@@ -1,5 +1,6 @@
 package api_tests;
 
+import com.github.javafaker.Faker;
 import controllers.CasesController;
 import controllers.MilestoneController;
 import controllers.ProjectController;
@@ -10,20 +11,21 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 
-
 public class BaseApiTest {
 
     protected int projectId;
+    protected Project project;
 
     ProjectController projectController = new ProjectController();
     SectionController sectionController = new SectionController();
     CasesController casesController = new CasesController();
     MilestoneController milestoneController = new MilestoneController();
+    static Faker faker = new Faker();
 
 
     @BeforeClass(alwaysRun = true)
     public void createTestProject() {
-        Project project = Project.builder()
+        project = Project.builder()
                 .setName("TestProject")
                 .setAnnouncement("Project for testing")
                 .setShowAnnouncement(false)
@@ -32,14 +34,12 @@ public class BaseApiTest {
         Response response = projectController.addProject(project);
         projectId = response.getBody().jsonPath().getInt("id");
 
-    }
 
-
-    @AfterClass(alwaysRun = true)
-    public void deleteTestProject() {
-        projectController.deleteProject(projectId);
     }
 
 }
+
+
+
 
 

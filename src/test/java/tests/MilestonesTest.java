@@ -16,8 +16,6 @@ public class MilestonesTest extends BaseTest {
         milestonesTab.isPageOpened();
         milestonesTab.clickAddMilestoneButton();
     }
-
-
     @Test(description = "Check if the milestone can be created", groups = "regression")
     public void createMilestoneTest() {
         Milestone milestone = TestDataGenerator.milestoneGeneration();
