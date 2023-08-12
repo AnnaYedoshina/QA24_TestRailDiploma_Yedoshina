@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 
 @Log4j2
 public class CreateProjectPage extends BasePage {
-    public CreateProjectPage(WebDriver driver) {
-        super(driver);
-    }
-
     private static final By PROJECT_NAME = By.name("name");
     private static final By PROJECT_ANNOUNCEMENT = By.name("announcement");
     private static final By ADD_PROJECT_BUTTON = By.id("accept");
+
+    public CreateProjectPage(WebDriver driver) {
+        super(driver);
+    }
 
 
     @Step("Creating project with title '{projectName}'")

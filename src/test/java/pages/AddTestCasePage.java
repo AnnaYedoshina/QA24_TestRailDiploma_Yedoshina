@@ -12,10 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class AddTestCasePage extends BasePage {
-    public AddTestCasePage(WebDriver driver) {
-        super(driver);
 
-    }
 
     private static final By TITLE = By.id("title");
     private static final By ESTIMATE = By.id("estimate");
@@ -34,6 +31,10 @@ public class AddTestCasePage extends BasePage {
     private static final By SUBMIT_ATTACHMENT_BUTTON = By.id("attachmentNewSubmit");
     private static final By FILE_INPUT = By.xpath("//input[@type='file'][last()]");
 
+    public AddTestCasePage(WebDriver driver) {
+        super(driver);
+
+    }
 
     @Step("Filling out test case '{testCase.title}'")
     public void fillingOutTestCase(TestCase testCase) {

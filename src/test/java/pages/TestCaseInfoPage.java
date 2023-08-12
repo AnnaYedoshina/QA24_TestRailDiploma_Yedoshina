@@ -9,9 +9,6 @@ import org.openqa.selenium.WebElement;
 
 @Log4j2
 public class TestCaseInfoPage extends BasePage {
-    public TestCaseInfoPage(WebDriver driver) {
-        super(driver);
-    }
 
     private static final By TITLE_LOCATOR = By.cssSelector(".content-header-title.page_title");
     private static final By SECTION_LOCATOR = By.xpath("//div[@class = 'content-breadcrumb']");
@@ -23,7 +20,10 @@ public class TestCaseInfoPage extends BasePage {
     private static final By PRECONDITIONS_LOCATOR = By.xpath("//span[@class =  'field-title-inner' and text() = 'Preconditions']/parent::div/following-sibling::div[@class='field-content'][1]//p");
     private static final By STEPS_LOCATOR = By.xpath("//span[@class='field-title-inner' and text() = 'Steps']/parent::div/following-sibling::div[@class='field-content'][1]//p");
     private static final By EXPECTED_RESULT_LOCATOR = By.xpath("//span[@class='field-title-inner' and text() = 'Expected Result']/parent::div/following-sibling::div[@class='field-content'][1]//p");
-    private static final By UPLOADED_FILE = By.xpath("//div[contains(@title, '%S')]");
+
+    public TestCaseInfoPage(WebDriver driver) {
+        super(driver);
+    }
 
     @Step("Getting test case info")
     public TestCase getTestCaseInfo() {

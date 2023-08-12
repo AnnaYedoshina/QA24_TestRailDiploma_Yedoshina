@@ -15,10 +15,6 @@ import java.util.List;
 @Log4j2
 public class MilestonesTab extends BasePage {
 
-    public MilestonesTab(WebDriver driver) {
-        super(driver);
-    }
-
     private static final By PAGE_TITLE = By.xpath("//*[@id='content-header']/descendant::div[contains(text(),'Milestones')]");
     private static final By ADD_MILESTONE_BUTTON = By.id("navigation-milestones-add");
     private static final By MILESTONE_NAME = By.id("name");
@@ -29,6 +25,10 @@ public class MilestonesTab extends BasePage {
     private static final String MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
     private static final String EDIT_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
     private static final String DELETE_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
+
+    public MilestonesTab(WebDriver driver) {
+        super(driver);
+    }
 
     public void isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(PAGE_TITLE));

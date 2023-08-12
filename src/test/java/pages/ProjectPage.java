@@ -8,13 +8,13 @@ import org.openqa.selenium.WebDriver;
 
 @Log4j2
 public class ProjectPage extends BasePage {
-    public ProjectPage(WebDriver driver) {
-        super(driver);
-    }
-
     private static final String addTestCaseButtonId = "sidebar-cases-add";
     private static final By CASE_TAB = By.id("navigation-suites");
     private static final By MILESTONE_TAB = By.id("navigation-milestones");
+
+    public ProjectPage(WebDriver driver) {
+        super(driver);
+    }
 
     @Step("Clicking addTestCaseLink")
     public void clickAddTestCasesLink() {

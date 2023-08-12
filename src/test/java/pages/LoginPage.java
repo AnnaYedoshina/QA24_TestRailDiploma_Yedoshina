@@ -10,16 +10,16 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver) {
-
-        super(driver);
-    }
-
     private static final By EMAIL_INPUT = By.id("name");
     private static final By PASSWORD_INPUT = By.id("password");
     private static final By LOGIN_BUTTON = By.id("button_primary");
     private static final By ERROR_MESSAGE = By.cssSelector(".loginpage-message");
     private static final By ERROR_TEXT = By.cssSelector(".error-text");
+
+    public LoginPage(WebDriver driver) {
+
+        super(driver);
+    }
 
     @Step("Logging in")
     public void logIn(String email, String password) {

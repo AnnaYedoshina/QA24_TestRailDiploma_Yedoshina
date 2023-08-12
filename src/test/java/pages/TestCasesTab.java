@@ -14,10 +14,6 @@ import java.util.List;
 
 @Log4j2
 public class TestCasesTab extends BasePage {
-    public TestCasesTab(WebDriver driver) {
-        super(driver);
-    }
-
     private static final By PAGE_TITLE = By.xpath("//*[@id='content-header']/descendant::div[contains(text(),'Test Cases')]");
     private static final By ADD_SECTION_BUTTON = By.id("addSection");
     private static final By ADD_SECTION_BUTTON_FOR_PROJECT_WITHOUT_SECTIONS = By.id("addSectionInline");
@@ -32,6 +28,9 @@ public class TestCasesTab extends BasePage {
     private static final String CASE_LOCATOR = "//div[contains(@class,'grid-container')]/descendant::span[text()='%s']";
     private static final String SECTION_LOCATOR = "//div[contains(@class,'grid-container')]/descendant::span[contains(@id,'sectionName') and text()='%s']";
 
+    public TestCasesTab(WebDriver driver) {
+        super(driver);
+    }
 
     private void waitDisappearBlockingWindow() {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(BLOCK_WINDOW));
@@ -76,9 +75,9 @@ public class TestCasesTab extends BasePage {
         WebElement sectionElement = driver.findElement(By.xpath(sectionLocator));
         Button sectionButton = new Button(driver, sectionElement);
         sectionButton.scroll();
+        sectionButton.hover();
         WebElement deleteSectionElement = driver.findElement(By.xpath(deleteSectionLocator));
         Button deleteSectionButton = new Button(driver, deleteSectionElement);
-        deleteSectionButton.hover();
         deleteSectionButton.click();
     }
 
