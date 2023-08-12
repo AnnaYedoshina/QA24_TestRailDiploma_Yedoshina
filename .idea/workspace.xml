@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="some mistakes corrected">
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/DeleteCheckBoxModal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/DeleteConfirmationModal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/BaseApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/BaseApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/CasesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/CasesApiTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/ProjectApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/ProjectApiTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/elements/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/elements/Button.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/elements/MyElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/elements/MyElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BaseTabPage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/MilestonesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MilestonesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +150,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SectionTest.deletedSectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
         <pattern>
@@ -162,7 +160,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.SectionTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="METHOD_NAME" value="deletedSectionTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -183,7 +182,7 @@
       <list>
         <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
         <item itemvalue="TestNG.ProjectTest.deleteProjectTest" />
-        <item itemvalue="TestNG.SectionTest" />
+        <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
         <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
         <item itemvalue="TestNG.MilestonesTest" />
       </list>
@@ -311,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691582050344</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="some mistakes corrected">
+      <created>1691683160505</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1691683160505</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

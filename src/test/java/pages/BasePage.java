@@ -1,6 +1,5 @@
 package pages;
 
-import elements.Checkbox;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -44,6 +43,7 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE));
 
     }
+
     public void waitForPendoBubbleImage() {
         wait.until(ExpectedConditions.elementToBeClickable(PENDO_IMAGE_BUBBLE));
 
@@ -58,19 +58,7 @@ public class BasePage {
             e.printStackTrace();
         }
     }
-    public void scrollIntoView(String locator) {
-        WebElement element = driver.findElement(By.xpath(locator));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    }
 
-    public void hover(String locator) {
-        Actions actions = new Actions(driver);
-        WebElement element = driver.findElement(By.xpath(locator));
-        actions.moveToElement(element).build().perform();
-    }
-    public void confirmDelete() {
-        new Checkbox(driver, CONFIRM_DELETE_BUTTON).check();
-    }
     public void waitForElementVisibility(String locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }

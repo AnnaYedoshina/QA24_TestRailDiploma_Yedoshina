@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import models.Milestone;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.DeleteConfirmationModal;
 
 import java.util.List;
 
@@ -25,11 +26,9 @@ public class MilestonesTab extends BasePage {
     private static final By SUBMIT_MILESTONE_BUTTON = By.id("accept");
     private static final By MILESTONE_TAB = By.id("navigation-milestones");
     private static final By ALL_MILESTONES = By.cssSelector(".summary-title");
-    private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='top bottom dialog-message']");
     private static final String MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
     private static final String EDIT_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
     private static final String DELETE_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[@class='deleteLink']";
-    private static final By SUCCESSFULLY_DELETE_MESSAGE = By.xpath("//div[text() = 'Successfully deleted the milestone (s).'] ");
 
     public void isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(PAGE_TITLE));
@@ -65,8 +64,8 @@ public class MilestonesTab extends BasePage {
         List<WebElement> milestonesList = driver.findElements(ALL_MILESTONES);
         for (WebElement milestone : milestonesList) {
             if (milestone.getText().equals(milestoneName)) {
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -90,12 +89,14 @@ public class MilestonesTab extends BasePage {
         String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
         String editMilestoneLocator = String.format(EDIT_MILESTONE_LOCATOR, milestoneName);
         waitForElementVisibility(milestoneLocator);
-        scrollIntoView(milestoneLocator);
-        hover(milestoneLocator);
+        WebElement milestoneElement = driver.findElement(By.xpath(milestoneLocator));
+        Button milestoneButton = new Button(driver, milestoneElement);
+        milestoneButton.scroll();
         WebElement editIcon = driver.findElement(By.xpath(editMilestoneLocator));
         waitForElementVisibility(editMilestoneLocator);
         editIcon.click();
     }
+
 
     @Step("Deleting milestone with title '{milestoneName}'")
     public void clickDeleteMilestone(String milestoneName) {
@@ -105,20 +106,19 @@ public class MilestonesTab extends BasePage {
         String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
         String deleteMilestoneLocator = String.format(DELETE_MILESTONE_LOCATOR, milestoneName);
         waitForElementVisibility(milestoneLocator);
-        scrollIntoView(milestoneLocator);
-        hover(milestoneLocator);
-        WebElement deleteIcon = driver.findElement(By.xpath(deleteMilestoneLocator));
+        WebElement milestoneElement = driver.findElement(By.xpath(milestoneLocator));
+        Button milestoneButton = new Button(driver, milestoneElement);
+        milestoneButton.scroll();
+        WebElement deleteMilestoneIcon = driver.findElement(By.xpath(deleteMilestoneLocator));
         waitForElementVisibility(deleteMilestoneLocator);
-        deleteIcon.click();
+        deleteMilestoneIcon.click();
     }
 
     @Step("Confirmation delete milestone")
     public void confirmDeleteMilestone() {
         log.info("Confirmation delete milestone");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(WARNING_MESSAGE_IN_CONFIRMATION_DELETE_MILESTONE_WINDOW));
-        confirmDelete();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(SUCCESSFULLY_DELETE_MESSAGE));
-        waitForPendoBubbleImage();
+        DeleteConfirmationModal deleteConfirmationModal = new DeleteConfirmationModal(driver);
+        deleteConfirmationModal.confirmDelete();
     }
 
 

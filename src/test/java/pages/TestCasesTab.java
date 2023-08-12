@@ -1,13 +1,14 @@
 package pages;
 
 import elements.Button;
-import elements.Checkbox;
 import elements.Input;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Section;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.DeleteCheckBoxModal;
+import utils.DeleteConfirmationModal;
 
 import java.util.List;
 
@@ -25,8 +26,6 @@ public class TestCasesTab extends BasePage {
     private static final By SUBMIT_SECTION_BUTTON = By.id("editSectionSubmit");
     private static final By ALL_SECTIONS = By.xpath("//div[contains(@class,'grid-container')]/descendant::span[contains(@id,'sectionName')]");
     private static final By CASE_TAB = By.id("navigation-suites");
-    private static final By DELETE_SECTION_CHECKBOX = By.xpath("//*[@id='deleteDialog']/descendant::input[@name='deleteCheckbox']");
-    private static final By WARNING_MESSAGE_IN_CONFIRMATION_DELETE_SECTION_WINDOW = By.xpath("//*[@id='deleteDialog']/descendant::p[@class='dialog-extra text-delete']");
     private static final By BLOCK_WINDOW = By.cssSelector("[class='blockUI blockOverlay']");
     private static final String DELETE_SECTION_ICON_LOCATOR = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-delete')]";
     private static final String EDIT_SECTION_ICON_LOCATOR = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-edit')]";
@@ -41,15 +40,16 @@ public class TestCasesTab extends BasePage {
     @Step("Checking the existence of the section with title '{sectionName}'")
     public boolean isSectionExist(String sectionName) {
         waitForPendoImage();
+        waitForPendoBubbleImage();
         List<WebElement> sectionsList = driver.findElements(ALL_SECTIONS);
-        boolean isSectionExist = false;
         for (WebElement section : sectionsList) {
             if (section.getText().equals(sectionName)) {
+                return true;
             }
-            isSectionExist = true;
         }
-        return isSectionExist;
+        return false;
     }
+
 
     @Step("Editing section with title '{sectionName}'")
     public void clickEditSection(String sectionName) {
@@ -58,10 +58,11 @@ public class TestCasesTab extends BasePage {
         String sectionLocator = String.format(CASE_LOCATOR, sectionName);
         String editSectionLocator = String.format(EDIT_SECTION_ICON_LOCATOR, sectionName);
         waitForElementVisibility(sectionLocator);
-        scrollIntoView(sectionLocator);
-        hover(sectionLocator);
-        WebElement editIcon = driver.findElement(By.xpath(editSectionLocator));
-        editIcon.click();
+        WebElement sectionElement = driver.findElement(By.xpath(sectionLocator));
+        Button sectionButton = new Button(driver, sectionElement);
+        sectionButton.scroll();
+        WebElement editSectionIcon = driver.findElement(By.xpath(editSectionLocator));
+        editSectionIcon.click();
     }
 
     @Step("Deleting section with title '{sectionName}'")
@@ -69,13 +70,16 @@ public class TestCasesTab extends BasePage {
         log.info("Clicking delete Section");
         waitForPendoImage();
         waitForPendoBubbleImage();
-        String sectionLocator= String.format(CASE_LOCATOR, sectionName);
-        String deleteSectionLocator  = String.format(DELETE_SECTION_ICON_LOCATOR, sectionName);
+        String sectionLocator = String.format(CASE_LOCATOR, sectionName);
+        String deleteSectionLocator = String.format(DELETE_SECTION_ICON_LOCATOR, sectionName);
         waitForElementVisibility(sectionLocator);
-        scrollIntoView(sectionLocator);
-        hover(sectionLocator);
-        WebElement deleteIcon = driver.findElement(By.xpath(deleteSectionLocator));
-        deleteIcon.click();
+        WebElement sectionElement = driver.findElement(By.xpath(sectionLocator));
+        Button sectionButton = new Button(driver, sectionElement);
+        sectionButton.scroll();
+        WebElement deleteSectionElement = driver.findElement(By.xpath(deleteSectionLocator));
+        Button deleteSectionButton = new Button(driver, deleteSectionElement);
+        deleteSectionButton.hover();
+        deleteSectionButton.click();
     }
 
     public void isPageOpened() {
@@ -120,9 +124,10 @@ public class TestCasesTab extends BasePage {
     @Step("Confirmation delete section")
     public void confirmDeleteSection() {
         log.info("Confirmation delete section");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(WARNING_MESSAGE_IN_CONFIRMATION_DELETE_SECTION_WINDOW));
-        new Checkbox(driver, DELETE_SECTION_CHECKBOX).check();
-        confirmDelete();
+        DeleteCheckBoxModal deleteCheckBoxModal = new DeleteCheckBoxModal(driver);
+        deleteCheckBoxModal.checkCheckbox();
+        DeleteConfirmationModal deleteConfirmationModal = new DeleteConfirmationModal(driver);
+        deleteConfirmationModal.confirmDelete();
     }
 
     @Step("Creating new section with title '{newSectionName}'")
@@ -138,6 +143,7 @@ public class TestCasesTab extends BasePage {
         new Button(driver, SUBMIT_SECTION_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(SECTION_LOCATOR, section.getName()))));
     }
+
     @Step
     public boolean isAddSectionButtonDisplayed() {
         WebElement addSectionButton = driver.findElement(ADD_SECTION_BUTTON);
