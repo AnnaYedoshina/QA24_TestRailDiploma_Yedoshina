@@ -40,7 +40,8 @@ public class MilestonesTest extends BaseTest {
         Milestone milestone = TestDataGenerator.milestoneGeneration();
         milestonesTab.createMilestone(milestone);
         milestonesTab.clickDeleteMilestone(milestone.getName());
-        milestonesTab.confirmDeleteMilestone();
+        deleteCheckBoxModal.waitForConfirmationWindowDisplayed();
+        deleteCheckBoxModal.confirmDelete();
         milestonesTab.openMilestoneTab();
         Assert.assertFalse(milestonesTab.isMilestoneExist(milestone.getName()), "Milestone has not been deleted");
     }

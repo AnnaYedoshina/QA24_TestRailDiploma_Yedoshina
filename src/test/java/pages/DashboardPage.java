@@ -25,6 +25,7 @@ public class DashboardPage extends BasePage {
         log.info("Opening Dashboard page");
         driver.get(BASE_URL + "index.php?/dashboard");
         acceptAlertIfPresent();
+        waitForPendoImage();
     }
 
     @Step("Clicking addProject button")

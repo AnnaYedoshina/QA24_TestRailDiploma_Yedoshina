@@ -41,7 +41,9 @@ public class ProjectTest extends BaseTest {
         createProjectPage.createProject(project);
         administrationPage.isPageOpened();
         administrationPage.deleteProject(project.getName());
-        administrationPage.confirmDeleteProject();
+        deleteCheckBoxModal.waitForConfirmationWindowDisplayed();
+        deleteCheckBoxModal.checkCheckbox();
+        deleteCheckBoxModal.confirmDelete();
         dashboardPage.open();
         Assert.assertFalse(dashboardPage.isProjectExist(project.getName()), "Project has not been deleted");
     }

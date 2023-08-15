@@ -8,8 +8,6 @@ import models.Section;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.DeleteCheckBoxModal;
-import utils.DeleteConfirmationModal;
 
 
 import java.util.List;
@@ -120,15 +118,6 @@ public class TestCasesTab extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(CASE_TAB));
         new Button(driver, CASE_TAB).click();
         acceptAlertIfPresent();
-    }
-
-    @Step("Confirmation delete section")
-    public void confirmDeleteSection() {
-        log.info("Confirmation delete section");
-        DeleteCheckBoxModal deleteCheckBoxModal = new DeleteCheckBoxModal(driver);
-        deleteCheckBoxModal.checkCheckbox();
-        DeleteConfirmationModal deleteConfirmationModal = new DeleteConfirmationModal(driver);
-        deleteConfirmationModal.confirmDelete();
     }
 
     @Step("Creating new section with title '{newSectionName}'")

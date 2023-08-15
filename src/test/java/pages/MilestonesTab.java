@@ -7,7 +7,6 @@ import lombok.extern.log4j.Log4j2;
 import models.Milestone;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.DeleteConfirmationModal;
 
 import java.util.List;
 
@@ -55,6 +54,7 @@ public class MilestonesTab extends BasePage {
         waitForPendoImage();
         waitForPendoBubbleImage();
         new Button(driver, MILESTONE_TAB).click();
+        waitForPendoBubbleImage();
     }
 
     @Step("Checking the existence of the milestone with title '{milestoneName}'")
@@ -88,7 +88,7 @@ public class MilestonesTab extends BasePage {
         waitForPendoBubbleImage();
         String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
         String editMilestoneLocator = String.format(EDIT_MILESTONE_LOCATOR, milestoneName);
-        waitForElementVisibility(milestoneLocator);
+        //waitForElementVisibility(milestoneLocator);
         WebElement milestoneElement = driver.findElement(By.xpath(milestoneLocator));
         Button milestoneButton = new Button(driver, milestoneElement);
         milestoneButton.scroll();
@@ -112,13 +112,6 @@ public class MilestonesTab extends BasePage {
         WebElement deleteMilestoneIcon = driver.findElement(By.xpath(deleteMilestoneLocator));
         waitForElementVisibility(deleteMilestoneLocator);
         deleteMilestoneIcon.click();
-    }
-
-    @Step("Confirmation delete milestone")
-    public void confirmDeleteMilestone() {
-        log.info("Confirmation delete milestone");
-        DeleteConfirmationModal deleteConfirmationModal = new DeleteConfirmationModal(driver);
-        deleteConfirmationModal.confirmDelete();
     }
 
 

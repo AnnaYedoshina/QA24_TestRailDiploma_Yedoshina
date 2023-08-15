@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="some mistakes corrected">
+    <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="clickDeleteSection method corrected. All tests work.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/modals/DeleteCheckBoxModal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/modals/DeleteConfirmationModal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/elements/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/elements/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/MilestonesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MilestonesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/DeleteCheckBoxModal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/DeleteConfirmationModal.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,23 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -107,6 +118,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MilestonesTest.deletedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
+      <option name="METHOD_NAME" value="deletedMilestoneTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MilestonesTest.updatedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
@@ -119,23 +148,6 @@
       <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
       <option name="METHOD_NAME" value="updatedMilestoneTest" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.SectionTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -173,10 +185,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
+        <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
         <item itemvalue="TestNG.MilestonesTest" />
         <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
         <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
-        <item itemvalue="TestNG.SectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -189,6 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1691061534644</updated>
       <workItem from="1691061535841" duration="2300000" />
+      <workItem from="1692038495046" duration="7967000" />
     </task>
     <task id="LOCAL-00001" summary="testRail project">
       <created>1691063455441</created>
@@ -323,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691856683145</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="clickDeleteSection method corrected. All tests work.">
+      <created>1691918881801</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1691918881801</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +363,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testRail project" />
     <MESSAGE value="some mistakes corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="some mistakes corrected" />
+    <MESSAGE value="clickDeleteSection method corrected. All tests work." />
+    <option name="LAST_COMMIT_MESSAGE" value="clickDeleteSection method corrected. All tests work." />
   </component>
 </project>

@@ -1,8 +1,9 @@
 package tests;
 
 import api_tests.BaseApiTest;
-import com.github.javafaker.Faker;
 import lombok.extern.log4j.Log4j2;
+import modals.DeleteCheckBoxModal;
+import modals.DeleteConfirmationModal;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
@@ -34,6 +35,8 @@ public abstract class BaseTest extends BaseApiTest {
     protected AdministrationPage administrationPage;
     protected TestCasesTab testCasesTab;
     protected MilestonesTab milestonesTab;
+    protected DeleteCheckBoxModal deleteCheckBoxModal;
+    protected DeleteConfirmationModal deleteConfirmationModal;
 
     @Parameters({"browserName"})
     @BeforeClass(alwaysRun = true)
@@ -57,6 +60,8 @@ public abstract class BaseTest extends BaseApiTest {
         administrationPage = new AdministrationPage(driver);
         testCasesTab = new TestCasesTab(driver);
         milestonesTab = new MilestonesTab(driver);
+        deleteCheckBoxModal = new DeleteCheckBoxModal(driver);
+        deleteConfirmationModal = new DeleteConfirmationModal(driver);
     }
 
     @AfterClass(alwaysRun = true)

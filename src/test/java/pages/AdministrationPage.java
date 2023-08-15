@@ -6,8 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.DeleteCheckBoxModal;
-import utils.DeleteConfirmationModal;
 
 
 @Log4j2
@@ -30,15 +28,6 @@ public class AdministrationPage extends BasePage {
     public void editProject(String projectName) {
         log.info("Editing project with title '{}'", projectName);
         new Button(driver, By.xpath(String.format(EDIT_PROJECT_ICON_LOCATOR, projectName))).click();
-    }
-
-    @Step("Confirmation deleting project")
-    public void confirmDeleteProject() {
-        log.info("Confirmation deleting project");
-        DeleteCheckBoxModal deleteCheckBoxModal = new DeleteCheckBoxModal(driver);
-        deleteCheckBoxModal.checkCheckbox();
-        DeleteConfirmationModal deleteConfirmationModal = new DeleteConfirmationModal(driver);
-        deleteConfirmationModal.confirmDelete();
     }
 
     public void isPageOpened() {
