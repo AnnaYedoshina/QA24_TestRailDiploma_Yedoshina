@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="clickDeleteSection method corrected. All tests work.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/modals/DeleteCheckBoxModal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/modals/DeleteConfirmationModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/elements/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/elements/Button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AdministrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
+    <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="Modals added">
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/MilestonesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MilestonesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ProjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/DeleteCheckBoxModal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/DeleteConfirmationModal.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +73,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml">
+  <component name="RunManager" selected="TestNG.MilestonesTest.updatedMilestoneTest">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="QA24_TestRailDiploma_Yedoshina" />
       <method v="2">
@@ -184,10 +170,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
         <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
         <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
         <item itemvalue="TestNG.MilestonesTest" />
-        <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
         <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
       </list>
     </recent_temporary>
@@ -201,7 +187,7 @@
       <option name="presentableId" value="Default" />
       <updated>1691061534644</updated>
       <workItem from="1691061535841" duration="2300000" />
-      <workItem from="1692038495046" duration="7967000" />
+      <workItem from="1692038495046" duration="8720000" />
     </task>
     <task id="LOCAL-00001" summary="testRail project">
       <created>1691063455441</created>
@@ -343,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691918881801</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Modals added">
+      <created>1692087312924</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1692087312924</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +357,7 @@
     <MESSAGE value="testRail project" />
     <MESSAGE value="some mistakes corrected" />
     <MESSAGE value="clickDeleteSection method corrected. All tests work." />
-    <option name="LAST_COMMIT_MESSAGE" value="clickDeleteSection method corrected. All tests work." />
+    <MESSAGE value="Modals added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modals added" />
   </component>
 </project>

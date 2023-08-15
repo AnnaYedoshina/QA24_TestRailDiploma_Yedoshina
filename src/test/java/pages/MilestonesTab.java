@@ -88,7 +88,7 @@ public class MilestonesTab extends BasePage {
         waitForPendoBubbleImage();
         String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
         String editMilestoneLocator = String.format(EDIT_MILESTONE_LOCATOR, milestoneName);
-        //waitForElementVisibility(milestoneLocator);
+        waitForElementVisibility(milestoneLocator);
         WebElement milestoneElement = driver.findElement(By.xpath(milestoneLocator));
         Button milestoneButton = new Button(driver, milestoneElement);
         milestoneButton.scroll();
