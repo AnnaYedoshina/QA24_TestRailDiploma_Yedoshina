@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Regression Test">
+    <parameter name="browserName" value="chrome"/>
     <test name="By group">
         <groups>
             <run>

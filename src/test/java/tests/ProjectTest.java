@@ -25,7 +25,7 @@ public class ProjectTest extends BaseTest {
     @Test(description = "Check if the project can be updated", groups = "regression", priority = 2)
     public void updateProjectTest() {
         Project project = TestDataGenerator.projectGeneration();
-        Project updatedProject = TestDataGenerator.updatedProjectGeneration();
+        Project updatedProject = TestDataGenerator.projectGeneration();
         createProjectPage.createProject(project);
         administrationPage.isPageOpened();
         administrationPage.editProject(project.getName());

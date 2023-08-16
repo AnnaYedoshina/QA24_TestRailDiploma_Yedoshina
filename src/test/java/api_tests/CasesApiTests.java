@@ -1,6 +1,5 @@
 package api_tests;
 
-import com.github.javafaker.Faker;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import models.Case;

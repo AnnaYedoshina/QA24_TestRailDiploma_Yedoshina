@@ -1,16 +1,13 @@
 package utils;
 
 import com.github.javafaker.Faker;
-import models.Milestone;
-import models.Project;
-import models.Section;
-import models.TestCase;
+import models.*;
 
 public class TestDataGenerator {
     static Faker faker = new Faker();
     private static final String TITLE = "Позитивное тестирование формы Login";
 
-    public static TestCase positiveTestCaseGeneration(String title) {
+    public static TestCase positiveTestCaseGeneration() {
         return TestCase.builder()
                 .setTitle(TITLE)
                 .setSection("Test Cases")
@@ -60,14 +57,7 @@ public class TestDataGenerator {
         return Project.builder()
                 .setName(faker.app().name() + faker.number().randomDigit())
                 .setAnnouncement(faker.app().version())
+                .setSuiteMode(1)
                 .build();
-    }
-
-    public static Project updatedProjectGeneration() {
-        return Project.builder()
-                .setName(faker.app().name() + faker.number().randomDigit())
-                .setAnnouncement(faker.app().version())
-                .build();
-
     }
 }

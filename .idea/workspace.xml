@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="Modals added">
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/BaseApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/BaseApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/CasesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/CasesApiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/MilestoneApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/MilestoneApiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api_tests/ProjectApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api_tests/ProjectApiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/elements/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/elements/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/elements/MyElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/elements/MyElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestCaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestCaseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TestDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/TestDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/suites/regressionTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/suites/regressionTest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +86,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MilestonesTest.updatedMilestoneTest">
+  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="QA24_TestRailDiploma_Yedoshina" />
       <method v="2">
@@ -87,16 +100,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MilestonesTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CasesApiTests.addTestCase" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="api_tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
+      <option name="PACKAGE_NAME" value="api_tests" />
+      <option name="MAIN_CLASS_NAME" value="api_tests.CasesApiTests" />
+      <option name="METHOD_NAME" value="addTestCase" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectApiTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api_tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api_tests" />
+      <option name="MAIN_CLASS_NAME" value="api_tests.ProjectApiTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -104,7 +135,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MilestonesTest.deletedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCaseTests.fileUploadTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
         <pattern>
@@ -113,8 +144,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="METHOD_NAME" value="deletedMilestoneTest" />
+      <option name="MAIN_CLASS_NAME" value="tests.TestCaseTests" />
+      <option name="METHOD_NAME" value="fileUploadTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -122,36 +153,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MilestonesTest.updatedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/apiTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="METHOD_NAME" value="updatedMilestoneTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SectionTest.deletedSectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.SectionTest" />
-      <option name="METHOD_NAME" value="deletedSectionTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/apiTest.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -170,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
         <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
-        <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
-        <item itemvalue="TestNG.MilestonesTest" />
-        <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
+        <item itemvalue="TestNG.TestCaseTests.fileUploadTest" />
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/apiTest.xml" />
+        <item itemvalue="TestNG.CasesApiTests.addTestCase" />
+        <item itemvalue="TestNG.ProjectApiTests" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +192,8 @@
       <option name="presentableId" value="Default" />
       <updated>1691061534644</updated>
       <workItem from="1691061535841" duration="2300000" />
-      <workItem from="1692038495046" duration="8720000" />
+      <workItem from="1692038495046" duration="9427000" />
+      <workItem from="1692109882887" duration="6750000" />
     </task>
     <task id="LOCAL-00001" summary="testRail project">
       <created>1691063455441</created>
@@ -336,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692087312924</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Modals added">
+      <created>1692108976705</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1692108976705</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

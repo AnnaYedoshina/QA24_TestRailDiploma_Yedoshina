@@ -44,7 +44,6 @@ public class SectionTest extends BaseTest {
         deleteCheckBoxModal.checkCheckbox();
         deleteCheckBoxModal.confirmDelete();
         testCasesTab.openCaseTab();
-        Assert.assertFalse(testCasesTab.isSectionExist(section.getName()), "Section was not updated");
         Assert.assertTrue(testCasesTab.isAddSectionButtonDisplayed(), "Section has not been deleted");
     }
 

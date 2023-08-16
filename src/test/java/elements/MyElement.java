@@ -131,4 +131,8 @@ public class MyElement implements WebElement {
     public void scrollIntoView() {
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", this.element);
     }
+    public WebElement getWebElement() {
+        return element;
+    }
+
 }

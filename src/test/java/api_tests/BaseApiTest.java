@@ -7,8 +7,8 @@ import controllers.ProjectController;
 import controllers.SectionController;
 import io.restassured.response.Response;
 import models.Project;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import utils.TestDataGenerator;
 
 
 public class BaseApiTest {
@@ -25,12 +25,7 @@ public class BaseApiTest {
 
     @BeforeClass(alwaysRun = true)
     public void createTestProject() {
-        project = Project.builder()
-                .setName("TestProject")
-                .setAnnouncement("Project for testing")
-                .setShowAnnouncement(false)
-                .setSuiteMode(1)
-                .build();
+        project = TestDataGenerator.projectGeneration();
         Response response = projectController.addProject(project);
         projectId = response.getBody().jsonPath().getInt("id");
 

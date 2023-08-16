@@ -23,7 +23,7 @@ public class TestCaseTests extends BaseTest {
 
     @Test(description = "Check if the test case can be created", groups = "smoke")
     public void positiveAddTestCaseTest() {
-        TestCase actualTestCase = TestDataGenerator.positiveTestCaseGeneration(TITLE);
+        TestCase actualTestCase = TestDataGenerator.positiveTestCaseGeneration();
         addTestCasePage.fillingOutTestCase(actualTestCase);
         addTestCasePage.clickAddTestCaseButton();
         TestCase expectedTestCase = testCaseInfoPage.getTestCaseInfo();
@@ -41,7 +41,7 @@ public class TestCaseTests extends BaseTest {
 
     @Test(description = "Check if file can be uploaded in test case", groups = "regression")
     public void fileUploadTest() {
-        TestCase testCase = TestDataGenerator.positiveTestCaseGeneration(TITLE);
+        TestCase testCase = TestDataGenerator.positiveTestCaseGeneration();
         addTestCasePage.fillingOutTestCase(testCase);
         addTestCasePage.clickAddImageButton();
         addTestCasePage.uploadFile(filePath);

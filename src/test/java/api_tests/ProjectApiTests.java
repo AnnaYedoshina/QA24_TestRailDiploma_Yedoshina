@@ -5,8 +5,8 @@ import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import models.Project;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.TestDataGenerator;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,12 +40,7 @@ public class ProjectApiTests extends BaseApiTest {
 
     @Test(description = "Check if the project can be createg by API", priority = 3, groups = "api")
     public void createProject() {
-        Project project = Project.builder()
-                .setName("New project")
-                .setAnnouncement("Project to check")
-                .setShowAnnouncement(false)
-                .setSuiteMode(1)
-                .build();
+        Project project = TestDataGenerator.projectGeneration();
         Response response = projectController.addProject(project);
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.getBody().as(Project.class, ObjectMapperType.GSON), project);
@@ -53,12 +48,7 @@ public class ProjectApiTests extends BaseApiTest {
 
     @Test(description = "Check if the project can be updated by API", priority = 4, groups = "api")
     public void updateProject() {
-        Project project = Project.builder()
-                .setName("Updated project")
-                .setAnnouncement("Project to update")
-                .setShowAnnouncement(false)
-                .setSuiteMode(1)
-                .build();
+        Project project = TestDataGenerator.projectGeneration();
         Response response = projectController.updateProject(project, projectId);
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.getBody().as(Project.class, ObjectMapperType.GSON), project);

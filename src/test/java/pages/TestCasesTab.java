@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Section;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
@@ -73,12 +72,13 @@ public class TestCasesTab extends BasePage {
         String deleteSectionLocator = String.format(DELETE_SECTION_ICON_LOCATOR, sectionName);
         waitForElementVisibility(sectionLocator);
         WebElement sectionElement = driver.findElement(By.xpath(sectionLocator));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(sectionElement).perform();
-        waitForElementVisibility(sectionLocator);
+        Button sectionButton = new Button(driver, sectionElement);
+        sectionButton.hover();
+        waitForElementVisibility(deleteSectionLocator);
         WebElement deleteSectionElement = driver.findElement(By.xpath(deleteSectionLocator));
         Button deleteSectionButton = new Button(driver, deleteSectionElement);
         deleteSectionButton.click();
+        waitForPendoBubbleImage();
     }
 
     public void isPageOpened() {

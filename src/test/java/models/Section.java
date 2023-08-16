@@ -21,4 +21,5 @@ public class Section {
     @SerializedName("display_order")
     int displayOrder;
     int depth;
+
 }
