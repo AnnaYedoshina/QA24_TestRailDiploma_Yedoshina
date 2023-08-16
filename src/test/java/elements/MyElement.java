@@ -1,6 +1,7 @@
 package elements;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,8 +132,9 @@ public class MyElement implements WebElement {
     public void scrollIntoView() {
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", this.element);
     }
-    public WebElement getWebElement() {
-        return element;
-    }
+public void hover() {
+    Actions actions = new Actions(driver);
+    actions.moveToElement(element).perform();
+}
 
 }

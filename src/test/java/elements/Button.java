@@ -33,8 +33,7 @@ public class Button {
     }
 
     public void hover() {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element.getWebElement()).perform();
+        this.element.hover();
     }
 }
 
