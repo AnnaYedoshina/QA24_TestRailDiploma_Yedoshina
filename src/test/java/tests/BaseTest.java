@@ -4,9 +4,7 @@ import api_tests.BaseApiTest;
 import lombok.extern.log4j.Log4j2;
 import modals.DeleteCheckBoxModal;
 import modals.DeleteConfirmationModal;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -72,12 +70,7 @@ public abstract class BaseTest extends BaseApiTest {
     @BeforeMethod(alwaysRun = true)
     public void navigate() {
         driver.get(BASE_URL);
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        } catch (NoAlertPresentException e) {
-        }
+        loginPage.acceptAlertIfPresent();
     }
 
     @AfterMethod(alwaysRun = true)

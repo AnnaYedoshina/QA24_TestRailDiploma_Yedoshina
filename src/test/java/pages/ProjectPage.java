@@ -27,12 +27,15 @@ public class ProjectPage extends BasePage {
     public void openCaseTab() {
         log.info("Opening page containing Sections and Cases");
         new Button(driver, CASE_TAB).click();
+        acceptAlertIfPresent();
     }
 
     @Step("Opening page containing Sections and Cases")
     public void openMilestoneTab() {
-        log.info("Opening page containing Sections and Cases");
+        log.info("Opening page containing Milestones");
         new Button(driver, MILESTONE_TAB).click();
+        acceptAlertIfPresent();
+        waitForPendoBubbleImage();
     }
 
 

@@ -12,14 +12,13 @@ import java.util.List;
 
 
 @Log4j2
-public class MilestonesTab extends BasePage {
+public class MilestonesTab extends ProjectPage {
 
     private static final By PAGE_TITLE = By.xpath("//*[@id='content-header']/descendant::div[contains(text(),'Milestones')]");
     private static final By ADD_MILESTONE_BUTTON = By.id("navigation-milestones-add");
     private static final By MILESTONE_NAME = By.id("name");
     private static final By MILESTONE_DESCRIPTION = By.id("description_display");
     private static final By SUBMIT_MILESTONE_BUTTON = By.id("accept");
-    private static final By MILESTONE_TAB = By.id("navigation-milestones");
     private static final By ALL_MILESTONES = By.cssSelector(".summary-title");
     private static final String MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/descendant::a[text()='%s']";
     private static final String EDIT_MILESTONE_LOCATOR = "//div[contains(@class,'summary-title')]/a[text()='%s']/ancestor::div[contains(@class, 'row')]//a[contains(text(), 'Edit')]";
@@ -47,14 +46,6 @@ public class MilestonesTab extends BasePage {
         new Input(driver, MILESTONE_NAME).setValue(milestone.getName());
         new Input(driver, MILESTONE_DESCRIPTION).setValue(milestone.getDescription());
         new Button(driver, SUBMIT_MILESTONE_BUTTON).click();
-    }
-
-    public void openMilestoneTab() {
-        log.info("Opening page containing Milestones");
-        waitForPendoImage();
-        waitForPendoBubbleImage();
-        new Button(driver, MILESTONE_TAB).click();
-        waitForPendoBubbleImage();
     }
 
     @Step("Checking the existence of the milestone with title '{milestoneName}'")
@@ -88,7 +79,6 @@ public class MilestonesTab extends BasePage {
         waitForPendoBubbleImage();
         String milestoneLocator = String.format(MILESTONE_LOCATOR, milestoneName);
         String editMilestoneLocator = String.format(EDIT_MILESTONE_LOCATOR, milestoneName);
-        waitForElementVisibility(milestoneLocator);
         WebElement milestoneElement = driver.findElement(By.xpath(milestoneLocator));
         Button milestoneButton = new Button(driver, milestoneElement);
         milestoneButton.scroll();

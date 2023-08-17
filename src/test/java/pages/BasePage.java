@@ -39,7 +39,7 @@ public class BasePage {
             alert.accept();
             driver.switchTo().defaultContent();
         } catch (NoAlertPresentException e) {
-            e.printStackTrace();
+            log.warn("Searching for alert. No alert present.");
         }
     }
 

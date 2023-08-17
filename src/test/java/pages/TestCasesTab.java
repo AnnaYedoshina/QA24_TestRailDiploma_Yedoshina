@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 @Log4j2
-public class TestCasesTab extends BasePage {
+public class TestCasesTab extends ProjectPage {
     private static final By PAGE_TITLE = By.xpath("//*[@id='content-header']/descendant::div[contains(text(),'Test Cases')]");
     private static final By ADD_SECTION_BUTTON = By.id("addSection");
     private static final By ADD_SECTION_BUTTON_FOR_PROJECT_WITHOUT_SECTIONS = By.id("addSectionInline");
@@ -20,7 +20,6 @@ public class TestCasesTab extends BasePage {
     private static final By SECTION_DESCRIPTION = By.id("editSectionDescription_display");
     private static final By SUBMIT_SECTION_BUTTON = By.id("editSectionSubmit");
     private static final By ALL_SECTIONS = By.xpath("//div[contains(@class,'grid-container')]/descendant::span[contains(@id,'sectionName')]");
-    private static final By CASE_TAB = By.id("navigation-suites");
     private static final By BLOCK_WINDOW = By.cssSelector("[class='blockUI blockOverlay']");
     private static final String DELETE_SECTION_ICON_LOCATOR = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-delete')]";
     private static final String EDIT_SECTION_ICON_LOCATOR = "//span[contains(@id,'sectionName') and text()='%s']/parent::div/descendant::div[contains(@class,'icon-small-edit')]";
@@ -109,15 +108,6 @@ public class TestCasesTab extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(SUBMIT_SECTION_BUTTON));
         new Button(driver, SUBMIT_SECTION_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(SECTION_LOCATOR, section.getName()))));
-    }
-
-    @Step("Opening page containing Sections and Cases")
-    public void openCaseTab() {
-        log.info("Opening page containing Sections and Cases");
-        waitForPendoImage();
-        wait.until(ExpectedConditions.elementToBeClickable(CASE_TAB));
-        new Button(driver, CASE_TAB).click();
-        acceptAlertIfPresent();
     }
 
     @Step("Creating new section with title '{newSectionName}'")
