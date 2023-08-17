@@ -30,7 +30,7 @@ public class ProjectPage extends BasePage {
         acceptAlertIfPresent();
     }
 
-    @Step("Opening page containing Sections and Cases")
+    @Step("Opening page containing Milestones")
     public void openMilestoneTab() {
         log.info("Opening page containing Milestones");
         new Button(driver, MILESTONE_TAB).click();
