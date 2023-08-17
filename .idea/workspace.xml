@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="Modals added">
+    <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="Alert corrected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProjectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProjectPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +77,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MilestonesTest">
+  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="QA24_TestRailDiploma_Yedoshina" />
       <method v="2">
@@ -175,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
+        <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
         <item itemvalue="TestNG.MilestonesTest" />
         <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
-        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
         <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
-        <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +192,7 @@
       <updated>1691061534644</updated>
       <workItem from="1691061535841" duration="2300000" />
       <workItem from="1692038495046" duration="9427000" />
-      <workItem from="1692109882887" duration="10346000" />
+      <workItem from="1692109882887" duration="12555000" />
     </task>
     <task id="LOCAL-00001" summary="testRail project">
       <created>1691063455441</created>
@@ -377,7 +376,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692200434685</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Alert corrected">
+      <created>1692271541698</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1692271541698</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Alert corrected">
+      <created>1692272709214</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1692272709214</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,6 +412,7 @@
     <MESSAGE value="some mistakes corrected" />
     <MESSAGE value="clickDeleteSection method corrected. All tests work." />
     <MESSAGE value="Modals added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modals added" />
+    <MESSAGE value="Alert corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alert corrected" />
   </component>
 </project>

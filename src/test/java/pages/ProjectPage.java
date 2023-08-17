@@ -35,7 +35,6 @@ public class ProjectPage extends BasePage {
         log.info("Opening page containing Milestones");
         new Button(driver, MILESTONE_TAB).click();
         acceptAlertIfPresent();
-        waitForPendoBubbleImage();
     }
 
 

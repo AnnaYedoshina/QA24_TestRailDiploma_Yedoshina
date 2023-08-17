@@ -59,6 +59,7 @@ public class TestCasesTab extends ProjectPage {
         Button sectionButton = new Button(driver, sectionElement);
         sectionButton.scroll();
         WebElement editSectionIcon = driver.findElement(By.xpath(editSectionLocator));
+        waitForElementVisibility(editSectionLocator);
         editSectionIcon.click();
     }
 
@@ -69,7 +70,6 @@ public class TestCasesTab extends ProjectPage {
         waitForPendoBubbleImage();
         String sectionLocator = String.format(SECTION_LOCATOR, sectionName);
         String deleteSectionLocator = String.format(DELETE_SECTION_ICON_LOCATOR, sectionName);
-        waitForElementVisibility(sectionLocator);
         WebElement sectionElement = driver.findElement(By.xpath(sectionLocator));
         Button sectionButton = new Button(driver, sectionElement);
         sectionButton.hover();
