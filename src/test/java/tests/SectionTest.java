@@ -12,7 +12,7 @@ public class SectionTest extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void addSection() {
         loginPage.logIn(USERNAME, PASSWORD);
-        dashboardPage.openProject(PROJECT_NAME);
+        dashboardPage.openProject(project.getName());
         projectPage.openCaseTab();
         testCasesTab.isPageOpened();
         testCasesTab.clickCreateSectionButton();

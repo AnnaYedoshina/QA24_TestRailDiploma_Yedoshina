@@ -11,7 +11,7 @@ public class MilestonesTest extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void loginAndOpenMilestonesTab() {
         loginPage.logIn(USERNAME, PASSWORD);
-        dashboardPage.openProject(PROJECT_NAME);
+        dashboardPage.openProject(project.getName());
         projectPage.openMilestoneTab();
         milestonesTab.isPageOpened();
         milestonesTab.clickAddMilestoneButton();

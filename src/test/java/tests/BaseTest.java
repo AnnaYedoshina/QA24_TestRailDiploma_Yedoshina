@@ -22,7 +22,6 @@ public abstract class BaseTest extends BaseApiTest {
     protected static final String BASE_URL = PropertyReader.getProperty("base_url");
     protected static final String USERNAME = PropertyReader.getProperty("username");
     protected static final String PASSWORD = PropertyReader.getProperty("password");
-    protected final static String PROJECT_NAME = "TestProject";
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected AddTestCasePage addTestCasePage;
