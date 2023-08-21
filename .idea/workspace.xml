@@ -6,36 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ba04c246-da1b-4665-967f-9ee336e886cf" name="Changes" comment="Alert corrected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/DashboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MilestonesTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProjectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProjectPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/TestCasesTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -50,48 +32,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/test" />
-      <recent name="$PROJECT_DIR$/src/test/java" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-    </key>
-  </component>
-  <component name="RunManager" selected="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="QA24_TestRailDiploma_Yedoshina" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="QA24_TestRailDiploma_Yedoshina" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MilestonesTest" type="TestNG" temporary="true" nameIsGenerated="true">
+}]]></component>
+  <component name="RunManager" selected="TestNG.SectionTest.createSectionTest">
+    <configuration name="ProjectTest.createProjectTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
         <pattern>
@@ -100,25 +51,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MilestonesTest.deletedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TestRail_Anna_Yedoshina_QA24" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="METHOD_NAME" value="deletedMilestoneTest" />
+      <option name="MAIN_CLASS_NAME" value="tests.ProjectTest" />
+      <option name="METHOD_NAME" value="createProjectTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -126,7 +60,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MilestonesTest.updatedMilestoneTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TestRail_Anna_Yedoshina_QA24" />
       <extension name="coverage">
         <pattern>
@@ -135,8 +69,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MilestonesTest" />
-      <option name="METHOD_NAME" value="updatedMilestoneTest" />
+      <option name="MAIN_CLASS_NAME" value="tests.SectionTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SectionTest.createSectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TestRail_Anna_Yedoshina_QA24" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.SectionTest" />
+      <option name="METHOD_NAME" value="createSectionTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -174,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
+        <item itemvalue="TestNG.SectionTest.createSectionTest" />
+        <item itemvalue="TestNG.ProjectTest.createProjectTest" />
         <item itemvalue="TestNG.SectionTest.deletedSectionTest" />
-        <item itemvalue="TestNG.MilestonesTest" />
-        <item itemvalue="TestNG.MilestonesTest.updatedMilestoneTest" />
-        <item itemvalue="TestNG.MilestonesTest.deletedMilestoneTest" />
+        <item itemvalue="TestNG.SectionTest" />
+        <item itemvalue="TestNG./Users/annayedoshina/IdeaProjects/QA24_TestRailDiploma_Yedoshina/suites/regressionTest.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -190,229 +141,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691061534644</updated>
-      <workItem from="1691061535841" duration="2300000" />
-      <workItem from="1692038495046" duration="9427000" />
-      <workItem from="1692109882887" duration="12555000" />
     </task>
-    <task id="LOCAL-00001" summary="testRail project">
-      <created>1691063455441</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1691063455441</updated>
-    </task>
-    <task id="LOCAL-00002" summary="some mistakes corrected">
-      <created>1691226424744</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1691226424744</updated>
-    </task>
-    <task id="LOCAL-00003" summary="some mistakes corrected">
-      <created>1691342668794</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1691342668794</updated>
-    </task>
-    <task id="LOCAL-00004" summary="some mistakes corrected">
-      <created>1691346326474</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1691346326474</updated>
-    </task>
-    <task id="LOCAL-00005" summary="some mistakes corrected">
-      <created>1691346696644</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1691346696644</updated>
-    </task>
-    <task id="LOCAL-00006" summary="some mistakes corrected">
-      <created>1691413977532</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1691413977532</updated>
-    </task>
-    <task id="LOCAL-00007" summary="some mistakes corrected">
-      <created>1691427446045</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1691427446045</updated>
-    </task>
-    <task id="LOCAL-00008" summary="some mistakes corrected">
-      <created>1691437105060</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1691437105060</updated>
-    </task>
-    <task id="LOCAL-00009" summary="some mistakes corrected">
-      <created>1691491899546</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1691491899546</updated>
-    </task>
-    <task id="LOCAL-00010" summary="some mistakes corrected">
-      <created>1691496644564</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1691496644564</updated>
-    </task>
-    <task id="LOCAL-00011" summary="some mistakes corrected">
-      <created>1691523251268</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1691523251268</updated>
-    </task>
-    <task id="LOCAL-00012" summary="some mistakes corrected">
-      <created>1691568081510</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1691568081510</updated>
-    </task>
-    <task id="LOCAL-00013" summary="some mistakes corrected">
-      <created>1691573544084</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1691573544084</updated>
-    </task>
-    <task id="LOCAL-00014" summary="some mistakes corrected">
-      <created>1691575923797</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1691575923797</updated>
-    </task>
-    <task id="LOCAL-00015" summary="some mistakes corrected">
-      <created>1691575976507</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1691575976507</updated>
-    </task>
-    <task id="LOCAL-00016" summary="some mistakes corrected">
-      <created>1691582050344</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1691582050344</updated>
-    </task>
-    <task id="LOCAL-00017" summary="some mistakes corrected">
-      <created>1691683160505</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1691683160505</updated>
-    </task>
-    <task id="LOCAL-00018" summary="some mistakes corrected">
-      <created>1691838817564</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1691838817564</updated>
-    </task>
-    <task id="LOCAL-00019" summary="some mistakes corrected">
-      <created>1691856683145</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1691856683145</updated>
-    </task>
-    <task id="LOCAL-00020" summary="clickDeleteSection method corrected. All tests work.">
-      <created>1691918881801</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1691918881801</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Modals added">
-      <created>1692087312924</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1692087312924</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Modals added">
-      <created>1692108976705</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1692108976705</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Modals added">
-      <created>1692198492285</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1692198492285</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Modals added">
-      <created>1692200101139</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1692200101139</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Modals added">
-      <created>1692200146713</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1692200146713</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Modals added">
-      <created>1692200434685</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1692200434685</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Alert corrected">
-      <created>1692271541698</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1692271541698</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Alert corrected">
-      <created>1692272709214</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1692272709214</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="testRail project" />
-    <MESSAGE value="some mistakes corrected" />
-    <MESSAGE value="clickDeleteSection method corrected. All tests work." />
-    <MESSAGE value="Modals added" />
-    <MESSAGE value="Alert corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alert corrected" />
   </component>
 </project>
