@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import utils.TestDataGenerator;
 
 public class TestCaseTests extends BaseTest {
-    private static final String TITLE = "Позитивное тестирование формы Login";
     private static final String EXPECTED_ERROR_MESSAGE = "Field Title is a required field.";
     private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
     private static final String FILE_NAME = "TestRail";
