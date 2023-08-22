@@ -8,8 +8,9 @@ import utils.TestDataGenerator;
 
 public class TestCaseTests extends BaseTest {
     private static final String EXPECTED_ERROR_MESSAGE = "Field Title is a required field.";
-    private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
+
     private static final String FILE_NAME = "TestRail";
+    private String filePath = System.getProperty("user.dir") + "/src/test/resources/TestRail.jpg";
 
 
     @BeforeMethod(alwaysRun = true)
